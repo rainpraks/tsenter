@@ -38,5 +38,5 @@ func resultHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		fmt.Fprint(w, "404 Page not found")
 	}
-	r.FormValue()
+	fmt.Print(r.FormValue("k2"))
 }
