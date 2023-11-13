@@ -38,5 +38,21 @@ func resultHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		fmt.Fprint(w, "404 Page not found")
 	}
-	fmt.Print(r.FormValue("k2"))
+
+	var konstruktsioon []string
+	var tehnoloogia []string
+
+	konstruktsioon = append(konstruktsioon, r.FormValue("k1"))
+	konstruktsioon = append(konstruktsioon, r.FormValue("k2"))
+	konstruktsioon = append(konstruktsioon, r.FormValue("k3"))
+	konstruktsioon = append(konstruktsioon, r.FormValue("mont/fp"))
+	konstruktsioon = append(konstruktsioon, r.FormValue("nahtavus1"))
+	konstruktsioon = append(konstruktsioon, r.FormValue("nahtavus2"))
+
+	tehnoloogia = append(tehnoloogia, r.FormValue("CNC"))
+	tehnoloogia = append(tehnoloogia, r.FormValue("servapuurimisevoimekus"))
+	tehnoloogia = append(tehnoloogia, r.FormValue("Lamello"))
+	tehnoloogia = append(tehnoloogia, r.FormValue("Domino"))
+	tehnoloogia = append(tehnoloogia, r.FormValue("OVVO"))
+
 }
