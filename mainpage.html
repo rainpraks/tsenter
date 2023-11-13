@@ -30,7 +30,8 @@
                     <td><input  type="radio" name="k2" value="avatav">avatav</td>
                     <td><input type="radio" name="k2" value="mitteavatav"> mitteavatav</td>
                 </tr>
-
+                <div id="messageAvatav" style="display: none; color: red;"></div>
+                <div id="messageMittenähtav" style="display: none; color: red;"></div>
                 <tr>
                     <td>Ühendus k3</td>
                     <td><input  type="radio" name="k3" value="liimiga">liimiga</td>
@@ -48,7 +49,7 @@
                 </tr>
                 <tr>
                     <td>Nähtavus 2</td>
-                    <td><input  type="radio" name="nahtavus2" value="valiseltnähtav">valiseltnähtav</td>
+                    <td><input  type="radio" name="nahtavus2" value="valiseltnähtav">väliselt nähtav</td>
                     <td><input type="radio" name="nahtavus2" value="valiseltmittenähtav"> väliselt mittenähtav</td>
                 </tr>
                 <tr>
@@ -99,4 +100,67 @@
         <button type="submit">Kalkuleerigenereeritulemusedlits</button> 
     </form>
 </body>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+// Function to disable or enable the 'liimiga' radio button
+function toggleLiimiga(enable) {
+    document.querySelector('input[name="k3"][value="liimiga"]').disabled = !enable;
+    if (!enable) {
+        document.querySelector('input[name="k3"][value="liimita"]').checked = true;
+    }
+}
+
+// Function to disable or enable the 'valiseltnähtav' and 'väliselt mittenähtav' radio buttons
+function toggleNähtavus(enable) {
+    document.querySelector('input[name="nahtavus2"][value="valiseltnähtav"]').disabled = !enable;
+    document.querySelector('input[name="nahtavus2"][value="valiseltmittenähtav"]').disabled = !enable;
+    if (!enable) {
+        // Uncheck both options if disabled
+        document.querySelector('input[name="nahtavus2"][value="valiseltnähtav"]').checked = false;
+        document.querySelector('input[name="nahtavus2"][value="valiseltmittenähtav"]').checked = false;
+    }
+}
+
+// Function to show or hide the message
+function showMessage(elementId,show, message) {
+    var messageElement = document.getElementById(elementId);
+    if (show) {
+        messageElement.style.display = 'block';
+        messageElement.textContent = message;
+    } else {
+        messageElement.style.display = 'none';
+    }
+}
+
+// Listen for changes on the 'avatav' and 'mitteavatav' radio buttons
+document.querySelectorAll('input[name="k2"]').forEach(function (radio) {
+    radio.addEventListener('change', function (e) {
+        if (e.target.value === 'avatav') {
+            toggleLiimiga(false);
+            showMessage('messageAvatav', true, "Ei saa valida liimiga kui furnituur on avatav");
+        } else {
+            toggleLiimiga(true);
+            showMessage('messageAvatav', false);
+        }
+    });
+});
+// Listen for changes on the 'nähtav' and 'mittenähtav' radio buttons
+document.querySelectorAll('input[name="nahtavus1"]').forEach(function (radio) {
+    radio.addEventListener('change', function (e) {
+        if (e.target.value === 'mittenähtav') {
+            toggleNähtavus(false);
+            showMessage('messageMittenähtav', true, "Ei saa valida väliselt nähtav/mittenähtav kui on valitud mitte nähtav furnituur.");
+        } else {
+            toggleNähtavus(true);
+                showMessage('messageMittenähtav', false);
+            }
+        
+    });
+});
+
+});
+</script>
 </html>
+
+
