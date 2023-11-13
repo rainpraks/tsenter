@@ -1,6 +1,7 @@
 package main
 
 import (
+	functions "Tsenter/Functions"
 	"fmt"
 	"html/template"
 	"log"
@@ -18,7 +19,7 @@ func main() {
 	}
 	http.HandleFunc("/", mainPage)
 
-	http.HandleFunc("/tulemus", resultHandler)
+	http.HandleFunc("/furnituur", resultHandler)
 	err2 := http.ListenAndServe(":8080", nil)
 	if err2 != nil {
 		log.Fatal("Could not start server")
@@ -54,5 +55,15 @@ func resultHandler(w http.ResponseWriter, r *http.Request) {
 	tehnoloogia = append(tehnoloogia, r.FormValue("Lamello"))
 	tehnoloogia = append(tehnoloogia, r.FormValue("Domino"))
 	tehnoloogia = append(tehnoloogia, r.FormValue("OVVO"))
+
+	tulemusedKon, tulemusedTeh := functions.ScoreCalc(konstruktsioon, tehnoloogia)
+	fmt.Println("\nKonstruktsiooni skoor")
+	for i, ch := range tulemusedKon {
+		fmt.Println(i, ": ", ch)
+	}
+	fmt.Println("\nTehnoloogia skoor")
+	for i, ch := range tulemusedTeh {
+		fmt.Println(i, ": ", ch)
+	}
 
 }
