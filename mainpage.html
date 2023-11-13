@@ -1,102 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Criteria Table</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criteria Table</title>
 </head>
+
 <body>
     <h1> Furnituuri sobivus kalkulaator</h1>
 </body>
-     <form action="/furnituur" method="POST">
-            <table>
-                <tr>
-                    <td></td><input type="radio" name="k1" value="90lagipohikuljel" checked>
-                    <img src="https://via.placeholder.com/40x60/0bf/fff&text=A" alt="Option 0"></td>
-                    <td></td><input type="radio" name="k1" value="90lagikulglae/pohjavahel" checked>
-                    <img src="https://via.placeholder.com/40x60/0bf/fff&text=A" alt="Option 1"></td>
-                    <td></td><input type="radio" name="k1" value="eerungis" checked>
-                    <img src="https://via.placeholder.com/40x60/0bf/fff&text=A" alt="Option 2"></td>
-                    <td></td><input type="radio" name="k1" value="fixvaheriiul" checked>
-                    <img src="https://via.placeholder.com/40x60/0bf/fff&text=A" alt="Option 3"></td>
-                    <td></td><input type="radio" name="k1" value="vahesein" checked>
-                    <img src="https://via.placeholder.com/40x60/0bf/fff&text=A" alt="Option 4"></td>
-                </tr>
-                <tr>
-                    <th>Konstruktsiooni valiku kriteeriumid</th>
-                </tr>
-                <tr>
-                    <td>Ühendus k2</td>
-                    <td><input  type="radio" name="k2" value="avatav">avatav</td>
-                    <td><input type="radio" name="k2" value="mitteavatav"> mitteavatav</td>
-                </tr>
+<form action="/furnituur" method="POST">
+    <table>
+        <tr>
+            <td></td><input type="radio" name="k1" value="Kandev Kulg" checked>
+            <img src="https://via.placeholder.com/40x60/0bf/fff&text=A" alt="Option 0"></td>
+            <td></td><input type="radio" name="k1" value="Lagi Peal" checked>
+            <img src="https://via.placeholder.com/40x60/0bf/fff&text=A" alt="Option 1"></td>
+            <td></td><input type="radio" name="k1" value="Eerung" checked>
+            <img src="https://via.placeholder.com/40x60/0bf/fff&text=A" alt="Option 2"></td>
+            <td></td><input type="radio" name="k1" value="Vaheriiul" checked>
+            <img src="https://via.placeholder.com/40x60/0bf/fff&text=A" alt="Option 3"></td>
+            <td></td><input type="radio" name="k1" value="Vahesein" checked>
+            <img src="https://via.placeholder.com/40x60/0bf/fff&text=A" alt="Option 4"></td>
+        </tr>
+        <tr>
+            <th>Konstruktsiooni valiku kriteeriumid</th>
+        </tr>
+        <tr>
+            <td>Ühendus k2</td>
+            <td><input type="radio" name="k2" value="Avatav">avatav</td>
+            <td><input type="radio" name="k2" value="Ei Ava"> mitteavatav</td>
+        </tr>
 
-                <tr>
-                    <td>Ühendus k3</td>
-                    <td><input  type="radio" name="k3" value="liimiga">liimiga</td>
-                    <td><input type="radio" name="k3" value="liimita"> liimita</td>
-                </tr>
-                <tr>
-                    <td>MONT/FP</td>
-                    <td><input  type="radio" name="mont/fp" value="monteeritud">monteeritud</td>
-                    <td><input type="radio" name="mont/fp" value="flatpack"> flatpack</td>
-                </tr>
-                <tr>
-                    <td>Nähtavus 1</td>
-                    <td><input  type="radio" name="nahtavus1" value="nähtav">nähtav</td>
-                    <td><input type="radio" name="nahtavus1" value="mittenähtav"> mittenähtav</td>
-                </tr>
-                <tr>
-                    <td>Nähtavus 2</td>
-                    <td><input  type="radio" name="nahtavus2" value="valiseltnähtav">valiseltnähtav</td>
-                    <td><input type="radio" name="nahtavus2" value="valiseltmittenähtav"> väliselt mittenähtav</td>
-                </tr>
-                <tr>
-                    <td>Materjal</td>
-                    <td><select>
+        <tr>
+            <td>Ühendus k3</td>
+            <td><input type="radio" name="k3" value="Liimiga">liimiga</td>
+            <td><input type="radio" name="k3" value="Liimita"> liimita</td>
+        </tr>
+        <tr>
+            <td>MONT/FP</td>
+            <td><input type="radio" name="mont/fp" value="Monteeritud">monteeritud</td>
+            <td><input type="radio" name="mont/fp" value="Flatpack"> flatpack</td>
+        </tr>
+        <tr>
+            <td>Nähtavus 1</td>
+            <td><input type="radio" name="nahtavus1" value="Nahtav">nähtav</td>
+            <td><input type="radio" name="nahtavus1" value="Mittenahtav"> mittenähtav</td>
+        </tr>
+        <tr>
+            <td>Nähtavus 2</td>
+            <td><input type="radio" name="nahtavus2" value="Valjast Nahtav">valiseltnähtav</td>
+            <td><input type="radio" name="nahtavus2" value="Seest Nahtav"> väliselt mittenähtav</td>
+        </tr>
+        <tr>
+            <td>Materjal</td>
+            <td><select>
                     <option value="taispuit">Täispuit</option>
                     <option value="vineer">Vineer</option>
                     <option value="MDF">MDF</option>
                     <option value="PLP">PLP</option>
                     <option value="kergplaat">kergplaat</option>
-                <tr>
-                    <td>Paksus</td>
-                    <td colspan="5"><input type="number" name="thickness" min="10" max="34" value="paksus"></td>
-                </tr>
-                <tr>
-                    <td>Koostu sügavus</td>
-                    <td colspan="6"><input type="number" name="thickness" min="40" max="700" value="sugavus"></td>
-                </tr>
-                <tr>
-                    <th>Tehnoloogia valiku kriteeriumid</th>
-                </tr>
-                <tr>
-                    <td>Serva puurimise võimekus</td>
-                    <td><input  type="radio" name="servapuurimisevoimekus" value="servapuurimisevoimekusJAH">jah</td>
-                    <td><input type="radio" name="servapuurimisevoimekus" value="servapuurimisevoimekusEI">ei </td>
-                </tr>
-                <tr>
-                    <td>CNC</td>
-                    <td><input  type="radio" name="CNC" value="CNCjah">jah</td>
-                    <td><input type="radio" name="CNC" value="CNCei"> ei</td>
-                </tr>
-                <tr>
-                    <td>Lamello masin</td>
-                    <td><input  type="radio" name="Lamello" value="LamelloJAH" >jah</td>
-                    <td><input type="radio" name="Lamello" value="LamelloEI"> ei</td>
-                </tr>
-                <tr>
-                    <td>Domino masin</td>
-                    <td><input  type="radio" name="Domino" value="dominoJAH">jah</td>
-                    <td><input type="radio" name="Domino" value="dominoEI"> ei</td>
-                </tr>
-                <tr>
-                    <td>OVVO masin</td>
-                    <td><input  type="radio" name="OVVO" value="ovvoJah">jah</td>
-                    <td><input type="radio" name="OVVO" value="ovvoEI"> ei</td>
-                </tr>
-            </table>
-        <button type="submit">Kalkuleerigenereeritulemusedlits</button> 
-    </form>
+        <tr>
+            <td>Paksus</td>
+            <td colspan="5"><input type="number" name="thickness" min="10" max="34" value="paksus"></td>
+        </tr>
+        <tr>
+            <td>Koostu sügavus</td>
+            <td colspan="6"><input type="number" name="thickness" min="40" max="700" value="sugavus"></td>
+        </tr>
+        <tr>
+            <th>Tehnoloogia valiku kriteeriumid</th>
+        </tr>
+        <tr>
+            <td>Serva puurimise võimekus</td>
+            <td><input type="radio" name="servapuurimisevoimekus" value="ServaPuurJAH">jah</td>
+            <td><input type="radio" name="servapuurimisevoimekus" value="ServaPuurEI">ei </td>
+        </tr>
+        <tr>
+            <td>CNC</td>
+            <td><input type="radio" name="CNC" value="CNCjah">jah</td>
+            <td><input type="radio" name="CNC" value="CNCei"> ei</td>
+        </tr>
+        <tr>
+            <td>Lamello masin</td>
+            <td><input type="radio" name="Lamello" value="LamelloJAH">jah</td>
+            <td><input type="radio" name="Lamello" value="LamelloEI"> ei</td>
+        </tr>
+        <tr>
+            <td>Domino masin</td>
+            <td><input type="radio" name="Domino" value="dominoJAH">jah</td>
+            <td><input type="radio" name="Domino" value="dominoEI"> ei</td>
+        </tr>
+        <tr>
+            <td>OVVO masin</td>
+            <td><input type="radio" name="OVVO" value="ovvoJah">jah</td>
+            <td><input type="radio" name="OVVO" value="ovvoEI"> ei</td>
+        </tr>
+    </table>
+    <button type="submit">Kalkuleerigenereeritulemusedlits</button>
+</form>
 </body>
+
 </html>

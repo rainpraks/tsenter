@@ -44,7 +44,6 @@ func resultHandler(w http.ResponseWriter, r *http.Request) {
 	var tehnoloogia []string
 
 	konstruktsioon = append(konstruktsioon, r.FormValue("k1"))
-	fmt.Println(r.FormValue("k1"))
 	konstruktsioon = append(konstruktsioon, r.FormValue("k2"))
 	konstruktsioon = append(konstruktsioon, r.FormValue("k3"))
 	konstruktsioon = append(konstruktsioon, r.FormValue("mont/fp"))
@@ -57,7 +56,14 @@ func resultHandler(w http.ResponseWriter, r *http.Request) {
 	tehnoloogia = append(tehnoloogia, r.FormValue("Domino"))
 	tehnoloogia = append(tehnoloogia, r.FormValue("OVVO"))
 
-	tulemused, teb := functions.ScoreCalc(konstruktsioon, tehnoloogia)
-	fmt.Println(tulemused, teb)
+	tulemusedKon, tulemusedTeh := functions.ScoreCalc(konstruktsioon, tehnoloogia)
+	fmt.Println("\nKonstruktsiooni skoor")
+	for i, ch := range tulemusedKon {
+		fmt.Println(i, ": ", ch)
+	}
+	fmt.Println("\nTehnoloogia skoor")
+	for i, ch := range tulemusedTeh {
+		fmt.Println(i, ": ", ch)
+	}
 
 }
