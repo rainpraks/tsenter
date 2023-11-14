@@ -39,9 +39,9 @@ func mainPage(w http.ResponseWriter, r *http.Request) {
 }
 
 func resultHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
+	/* if r.Method != http.MethodPost {
 		fmt.Fprint(w, "404 Page not found")
-	}
+	} */
 
 	var konstruktsioon []string
 	var tehnoloogia []string
