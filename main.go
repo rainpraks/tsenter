@@ -7,6 +7,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 )
 
 var tpl *template.Template
@@ -18,15 +19,17 @@ func main() {
 	tpl, err = template.ParseGlob("*.html")
 	if err != nil {
 		log.Fatalf("Error parsing templates: %v", err)
-		return
 	}
 	http.HandleFunc("/", mainPage)
-
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080" // Default port if not set
+	}
+	fmt.Println("Listening on port: ", port)
 	http.HandleFunc("/furnituur", resultHandler)
-	err2 := http.ListenAndServe(":8080", nil)
+	err2 := http.ListenAndServe(":"+port, nil)
 	if err2 != nil {
-		log.Fatal("Could not start server")
-		return
+		log.Fatal("Could not start server", err)
 	}
 }
 
@@ -39,9 +42,9 @@ func mainPage(w http.ResponseWriter, r *http.Request) {
 }
 
 func resultHandler(w http.ResponseWriter, r *http.Request) {
-	/* if r.Method != http.MethodPost {
+	if r.Method != http.MethodPost {
 		fmt.Fprint(w, "404 Page not found")
-	} */
+	}
 
 	var konstruktsioon []string
 	var tehnoloogia []string
