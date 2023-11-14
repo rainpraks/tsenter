@@ -67,7 +67,6 @@ func resultHandler(w http.ResponseWriter, r *http.Request) {
 	serializedData, err := json.Marshal(list)
 	if err != nil {
 		fmt.Print("ERROR")
-		return
 	}
 
 	fmt.Println(string(serializedData))
