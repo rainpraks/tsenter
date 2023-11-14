@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style1.css">
+    <link rel="stylesheet" href="/static/style.css">
     <title>Criteria Table</title>
 </head>
 
@@ -104,8 +104,10 @@
             <button type="submit">Submit</button>
      </form>
 
-         <table border="1">
-                <tr>
+         <table class="table">
+                <thead></thead>
+                <tbody></tbody>
+              <!--   <tr>
                     <th>Furnituur</th>
                     <th>Konstruktsiooni sobivus</th>
                     <th>Tehnoloogia sobivus</th>
@@ -114,7 +116,7 @@
                 <tr data-row="result2"><td data-name="furnituur2"></td><td data-name="konstruktsioonisobivus2"></td><td data-name="tehnoloogiasobivus2"></td></tr>
                 <tr data-row="result3"><td data-name="furnituur3"></td><td data-name="konstruktsioonisobivus3"></td><td data-name="tehnoloogiasobivus3"></td></tr>
                 <tr data-row="result4"><td data-name="furnituur4"></td><td data-name="konstruktsioonisobivus4"></td><td data-name="tehnoloogiasobivus4"></td></tr>
-                <tr data-row="result5"><td data-name="furnituur5"></td><td data-name="konstruktsioonisobivus5"></td><td data-name="tehnoloogiasobivus5"></td></tr>
+                <tr data-row="result5"><td data-name="furnituur5"></td><td data-name="konstruktsioonisobivus5"></td><td data-name="tehnoloogiasobivus5"></td></tr> -->
             </table>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -168,6 +170,33 @@
                 });
             });
         });
+        async function loadIntoTable(url, table) {
+            const tableHead = table.querySelector("thead")
+            const tableHead = table.querySelector("tbody")
+            const response = await fetch(url);
+            const { headers, rows } = await response. json();
+
+
+            tableHead.innerHTML = "<tr></tr>";
+            tableBody.innerHTML = "";
+
+            for (const headerText of headers) {
+                const headerElement = document.createElement("th");
+
+                headerElement.textContent = headerText;
+                tableHead.querySelector("tr").appendChild(headerElement);   
+            }
+            for (const row of rows) {
+                const rowElement = document.createElement("tr");
+                for (const cellText of rows) {
+                const cellElement = document.createElement("td");
+
+                cellElement.textContent = cellText;
+                rowElement.appendChild(cellElement);
+            }
+            tableBody.appendChild(rowElement);
+        }
+        loadIntoTable(" ./data.jsnon", document.querySelector("table"));
      </script>
 </body>
 </html>
