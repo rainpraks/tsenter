@@ -1,7 +1,31 @@
 package functions
 
-func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
+import (
+	"fmt"
+	"sort"
+)
 
+type ScoreSlice []Score
+type Score struct {
+	Name                string
+	ConScore, TechScore int
+}
+
+func (s ScoreSlice) Len() int {
+	return len(s)
+}
+
+func (s ScoreSlice) Less(i, j int) bool {
+	// Calculate the sum of attributes for comparison
+	sum1 := s[i].TechScore + s[i].ConScore
+	sum2 := s[j].TechScore + s[j].ConScore
+	return sum1 < sum2 // Change to > for descending order
+}
+func (s ScoreSlice) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 	furnituurid := map[string]map[string]int{
 		"Puittüübel keerdsooneline": {
 			"Kandev Kulg":    100,
@@ -9,14 +33,14 @@ func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
 			"Eerung":         0,
 			"Vaheriiul":      100,
 			"Vahesein":       100,
-			"Ei Ava":         100,
-			"Avatav":         0,
+			"mitteavatav":    100,
+			"avatav":         0,
 			"Liimiga":        100,
 			"Liimita":        0,
 			"Monteeritud":    100,
 			"Flatpack":       0,
 			"Nahtav":         0,
-			"Mittenahtav":    100,
+			"mittenahtav":    100,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   0,
 
@@ -38,14 +62,14 @@ func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
 			"Eerung":         100,
 			"Vaheriiul":      100,
 			"Vahesein":       100,
-			"Ei Ava":         100,
-			"Avatav":         0,
+			"mitteavatav":    100,
+			"avatav":         0,
 			"Liimiga":        100,
 			"Liimita":        0,
 			"Monteeritud":    100,
 			"Flatpack":       0,
 			"Nahtav":         0,
-			"Mittenahtav":    100,
+			"mittenahtav":    100,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   0,
 
@@ -67,14 +91,14 @@ func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
 			"Eerung":         0,
 			"Vaheriiul":      100,
 			"Vahesein":       100,
-			"Ei Ava":         0,
-			"Avatav":         100,
+			"mitteavatav":    0,
+			"avatav":         100,
 			"Liimiga":        0,
 			"Liimita":        100,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         100,
-			"Mittenahtav":    0,
+			"mittenahtav":    0,
 			"Valjast Nahtav": 100,
 			"Seest Nahtav":   0,
 
@@ -95,14 +119,14 @@ func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
 			"Eerung":         0,
 			"Vaheriiul":      100,
 			"Vahesein":       100,
-			"Ei Ava":         0,
-			"Avatav":         100,
+			"mitteavatav":    0,
+			"avatav":         100,
 			"Liimiga":        0,
 			"Liimita":        100,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         100,
-			"Mittenahtav":    0,
+			"mittenahtav":    0,
 			"Valjast Nahtav": 100,
 			"Seest Nahtav":   100,
 
@@ -123,14 +147,14 @@ func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
 			"Eerung":         0,
 			"Vaheriiul":      100,
 			"Vahesein":       100,
-			"Ei Ava":         0,
-			"Avatav":         100,
+			"mitteavatav":    0,
+			"avatav":         100,
 			"Liimiga":        0,
 			"Liimita":        100,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         100,
-			"Mittenahtav":    0,
+			"mittenahtav":    0,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   100,
 
@@ -151,14 +175,14 @@ func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
 			"Eerung":         0,
 			"Vaheriiul":      100,
 			"Vahesein":       100,
-			"Ei Ava":         0,
-			"Avatav":         100,
+			"mitteavatav":    0,
+			"avatav":         100,
 			"Liimiga":        0,
 			"Liimita":        100,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         100,
-			"Mittenahtav":    0,
+			"mittenahtav":    0,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   100,
 
@@ -178,14 +202,14 @@ func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
 			"Eerung":         0,
 			"Vaheriiul":      0,
 			"Vahesein":       100,
-			"Ei Ava":         0,
-			"Avatav":         100,
+			"mitteavatav":    0,
+			"avatav":         100,
 			"Liimiga":        0,
 			"Liimita":        100,
 			"Monteeritud":    100,
 			"Flatpack":       0,
 			"Nahtav":         0,
-			"Mittenahtav":    100,
+			"mittenahtav":    100,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   000,
 
@@ -206,14 +230,14 @@ func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
 			"Eerung":         0,
 			"Vaheriiul":      100,
 			"Vahesein":       0,
-			"Ei Ava":         0,
-			"Avatav":         100,
+			"mitteavatav":    0,
+			"avatav":         100,
 			"Liimiga":        0,
 			"Liimita":        100,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         100,
-			"Mittenahtav":    0,
+			"mittenahtav":    0,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   100,
 
@@ -234,14 +258,14 @@ func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
 			"Eerung":         100,
 			"Vaheriiul":      100,
 			"Vahesein":       100,
-			"Ei Ava":         0,
-			"Avatav":         100,
+			"mitteavatav":    0,
+			"avatav":         100,
 			"Liimiga":        0,
 			"Liimita":        100,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         100,
-			"Mittenahtav":    0,
+			"mittenahtav":    0,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   100,
 
@@ -262,14 +286,14 @@ func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
 			"Eerung":         100,
 			"Vaheriiul":      100,
 			"Vahesein":       100,
-			"Ei Ava":         100,
-			"Avatav":         0,
+			"mitteavatav":    100,
+			"avatav":         0,
 			"Liimiga":        100,
 			"Liimita":        100,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         0,
-			"Mittenahtav":    100,
+			"mittenahtav":    100,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   0,
 
@@ -290,14 +314,14 @@ func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
 			"Eerung":         0,
 			"Vaheriiul":      100,
 			"Vahesein":       100,
-			"Ei Ava":         100,
-			"Avatav":         0,
+			"mitteavatav":    100,
+			"avatav":         0,
 			"Liimiga":        100,
 			"Liimita":        0,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         0,
-			"Mittenahtav":    100,
+			"mittenahtav":    100,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   0,
 
@@ -318,14 +342,14 @@ func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
 			"Eerung":         0,
 			"Vaheriiul":      100,
 			"Vahesein":       100,
-			"Ei Ava":         0,
-			"Avatav":         100,
+			"mitteavatav":    0,
+			"avatav":         100,
 			"Liimiga":        0,
 			"Liimita":        100,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         100,
-			"Mittenahtav":    0,
+			"mittenahtav":    0,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   100,
 
@@ -346,14 +370,14 @@ func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
 			"Eerung":         100,
 			"Vaheriiul":      100,
 			"Vahesein":       100,
-			"Ei Ava":         0,
-			"Avatav":         100,
+			"mitteavatav":    0,
+			"avatav":         100,
 			"Liimiga":        0,
 			"Liimita":        100,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         0,
-			"Mittenahtav":    100,
+			"mittenahtav":    100,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   0,
 
@@ -376,14 +400,14 @@ func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
 		"Eerung":         false,
 		"Vaheriiul":      false,
 		"Vahesein":       false,
-		"Ei Ava":         false,
-		"Avatav":         false,
+		"mitteavatav":    false,
+		"avatav":         false,
 		"Liimiga":        false,
 		"Liimita":        false,
 		"Monteeritud":    false,
 		"Flatpack":       false,
 		"Nahtav":         false,
-		"Mittenahtav":    false,
+		"mittenahtav":    false,
 		"Valjast Nahtav": false,
 		"Seest Nahtav":   false,
 	}
@@ -403,18 +427,26 @@ func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
 
 	for _, ch := range inputKon {
 		valitudKonstrukt[ch] = true
+
 	}
 	for _, ch := range inputTeh {
 		valitudTehnoloog[ch] = true
+
 	}
 
 	konstruktsioon := make(map[string]int)
 	tehnoloogia := make(map[string]int)
-
 	for valik, onValitud := range valitudKonstrukt {
 		if onValitud {
 			for furnituur, skoor := range furnituurid {
 				konstruktsioon[furnituur] += skoor[valik]
+				if furnituur == "Clamex P “LAMELLO”" {
+					fmt.Println(furnituur, konstruktsioon[furnituur], valik)
+				}
+			}
+		} else {
+			for furnituur := range furnituurid {
+				konstruktsioon[furnituur]++
 			}
 		}
 	}
@@ -422,10 +454,26 @@ func ScoreCalc(inputKon, inputTeh []string) (map[string]int, map[string]int) {
 		if onValitud {
 			for furnituur, skoor := range furnituurid {
 				tehnoloogia[furnituur] += skoor[valik]
+
+			}
+		} else {
+			for furnituur := range furnituurid {
+				tehnoloogia[furnituur]++
 			}
 		}
 	}
+	var list = ScoreSlice{}
+	for nimi := range furnituurid {
+		var s = Score{
+			Name:      nimi,
+			TechScore: tehnoloogia[nimi],
+			ConScore:  konstruktsioon[nimi],
+		}
+		list = append(list, s)
+	}
 
-	return konstruktsioon, tehnoloogia
+	sort.Sort(sort.Reverse(list))
+	fmt.Println(list)
+	return list
 
 }

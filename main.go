@@ -56,14 +56,16 @@ func resultHandler(w http.ResponseWriter, r *http.Request) {
 	tehnoloogia = append(tehnoloogia, r.FormValue("Domino"))
 	tehnoloogia = append(tehnoloogia, r.FormValue("OVVO"))
 
-	tulemusedKon, tulemusedTeh := functions.ScoreCalc(konstruktsioon, tehnoloogia)
+	list := functions.ScoreCalc(konstruktsioon, tehnoloogia)
 	fmt.Println("\nKonstruktsiooni skoor")
-	for i, ch := range tulemusedKon {
-		fmt.Println(i, ": ", ch)
-	}
-	fmt.Println("\nTehnoloogia skoor")
-	for i, ch := range tulemusedTeh {
-		fmt.Println(i, ": ", ch)
-	}
+	/* 	for i, ch := range tulemusedKon {
+	   		fmt.Println(i, ": ", ch)
+	   	}
+	   	fmt.Println("\nTehnoloogia skoor")
+	   	for i, ch := range tulemusedTeh {
+	   		fmt.Println(i, ": ", ch)
+	   	} */
+	list = list[:6]
+	fmt.Print(list)
 
 }
