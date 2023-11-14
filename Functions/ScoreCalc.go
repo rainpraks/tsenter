@@ -10,16 +10,20 @@ type Score struct {
 	ConScore, TechScore int
 }
 
+// võta selle pikkus
 func (s ScoreSlice) Len() int {
 	return len(s)
 }
 
+// võrdleb kahte elementi
 func (s ScoreSlice) Less(i, j int) bool {
 	// Calculate the sum of attributes for comparison
 	sum1 := s[i].TechScore + s[i].ConScore
 	sum2 := s[j].TechScore + s[j].ConScore
 	return sum1 < sum2 // Change to > for descending order
 }
+
+// vahetab kahe asja kohad
 func (s ScoreSlice) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }
@@ -392,7 +396,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"ovvoEI":       -100,
 		},
 	}
-
+	//kõik valikud mida kasutaja hakkab valima.
 	valitudKonstrukt := map[string]bool{
 		"Kandev Kulg":    false,
 		"Lagi Peal":      false,
@@ -432,15 +436,18 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 		valitudTehnoloog[ch] = true
 
 	}
-
+	//tühjad mapid selleks et skoori arvutada
 	konstruktsioon := make(map[string]int)
 	tehnoloogia := make(map[string]int)
+	//kui on true..
 	for valik, onValitud := range valitudKonstrukt {
 		if onValitud {
+			//lisab skoori juurde
 			for furnituur, skoor := range furnituurid {
 				konstruktsioon[furnituur] += skoor[valik]
 			}
 		} else {
+			//paneb ühe juurde kui ei ole valitud
 			for furnituur := range furnituurid {
 				konstruktsioon[furnituur]++
 			}
@@ -458,8 +465,11 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			}
 		}
 	}
+	//teeb tühja  skoor slice
 	var list = ScoreSlice{}
+	//võtab kõik furnituuri nimed
 	for nimi := range furnituurid {
+
 		var s = Score{
 			Name:      nimi,
 			TechScore: tehnoloogia[nimi],
