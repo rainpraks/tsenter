@@ -71,4 +71,7 @@ func resultHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	fmt.Println(string(serializedData))
+	w.Header().Set("Content-Type", "application/json")
+	// Write the JSON data to the response
+	w.Write(serializedData)
 }
