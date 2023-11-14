@@ -2,6 +2,7 @@ package main
 
 import (
 	functions "Tsenter/Functions"
+	"encoding/json"
 	"fmt"
 	"html/template"
 	"log"
@@ -11,6 +12,8 @@ import (
 var tpl *template.Template
 
 func main() {
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+
 	var err error
 	tpl, err = template.ParseGlob("*.html")
 	if err != nil {
@@ -58,14 +61,14 @@ func resultHandler(w http.ResponseWriter, r *http.Request) {
 
 	list := functions.ScoreCalc(konstruktsioon, tehnoloogia)
 	fmt.Println("\nKonstruktsiooni skoor")
-	/* 	for i, ch := range tulemusedKon {
-	   		fmt.Println(i, ": ", ch)
-	   	}
-	   	fmt.Println("\nTehnoloogia skoor")
-	   	for i, ch := range tulemusedTeh {
-	   		fmt.Println(i, ": ", ch)
-	   	} */
-	list = list[:6]
-	fmt.Print(list)
 
+	list = list[:6]
+	//fmt.Print(list)
+	serializedData, err := json.Marshal(list)
+	if err != nil {
+		fmt.Print("ERROR")
+		return
+	}
+
+	fmt.Println(string(serializedData))
 }

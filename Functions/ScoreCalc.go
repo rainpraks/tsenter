@@ -1,7 +1,6 @@
 package functions
 
 import (
-	"fmt"
 	"sort"
 )
 
@@ -440,9 +439,6 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 		if onValitud {
 			for furnituur, skoor := range furnituurid {
 				konstruktsioon[furnituur] += skoor[valik]
-				if furnituur == "Clamex P “LAMELLO”" {
-					fmt.Println(furnituur, konstruktsioon[furnituur], valik)
-				}
 			}
 		} else {
 			for furnituur := range furnituurid {
@@ -473,7 +469,6 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 	}
 
 	sort.Sort(sort.Reverse(list))
-	fmt.Println(list)
 	return list
 
 }
