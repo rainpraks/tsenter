@@ -172,7 +172,7 @@
                         radio.addEventListener('change', function (e) {
                             if (e.target.value === 'mittenahtav') {
                                 toggleNähtavus(false);
-                                showMessage('messageMittenähtav', true, "Ei saa valida väliselt nähtav/mittenähtav kui on valitud mitte nähtav furnituur.");
+                                showMessage('messageMittenähtav', true, "Ei saa valida väljast nähtav või seest nähtav kui on valitud mittenähtav furnituur.");
                             } else {
                                 toggleNähtavus(true);
                                 showMessage('messageMittenähtav', false);
