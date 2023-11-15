@@ -6,10 +6,12 @@ body {
 }
 
 h1 {
-    background: #333;
+
+    background: grey url(HTsenterhallläbipaistev.png)no-repeat left center;
     color: #fff;
     padding: 20px;
     text-align: center;
+    background-size: 200px 50px;
 }
 
 table {
@@ -28,7 +30,7 @@ th, td {
 }
 
 th {
-    background-color: yellowgreen;
+    background-color: grey;
     color: white;
 }
 
