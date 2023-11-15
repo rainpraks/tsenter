@@ -15,26 +15,28 @@
                     <h2>Sisesta parameetrid:</h2> 
             </section>
             <table id="furnituurid">
-                    <td>
-                        <input type="radio" name="k1" value="Kandev Kulg" checked="checked">
-                        <img src="https://via.placeholder.com/40x60/0bf/fff&text=A" alt="Option 0">
-                    </td>
-                    <td>
-                        <input type="radio" name="k1" value="Lagi Peal" >
-                        <img src="https://via.placeholder.com/40x60/0bf/fff&text=A" alt="Option 1">
-                    </td>
-                    <td>
-                        <input type="radio" name="k1" value="Eerung">
-                        <img src="https://via.placeholder.com/40x60/0bf/fff&text=A" alt="Option 2">
-                    </td>
-                    <td>
-                        <input type="radio" name="k1" value="Vaheriiul">
-                        <img src="https://via.placeholder.com/40x60/0bf/fff&text=A" alt="Option 3">
-                    </td>
-                    <td>
-                        <input type="radio" name="k1" value="Vahesein">
-                        <img src="https://via.placeholder.com/40x60/0bf/fff&text=A" alt="Option 4">
-                    </td>
+                    <tr>
+                        <td>
+                            <input type="radio" id="kandevKulg" name="k1" value="Kandev Kulg" checked="checked">
+                            <label for="kandevKulg" class="radio-button-label"></label>
+                        </td>
+                        <td>
+                            <input type="radio" id="lagiPeal" name="k1" value="Lagi Peal" >
+                            <label for="lagiPeal" class="radio-button-label"></label>
+                        </td>
+                        <td>
+                            <input type="radio" id="eerung" name="k1" value="Eerung">
+                            <label for="eerung" class="radio-button-label"></label>
+                        </td>
+                        <td>
+                            <input type="radio" id="vaheriiul" name="k1" value="Vaheriiul">
+                            <label for="vaheriiul" class="radio-button-label"></label>
+                        </td>
+                        <td>
+                            <input type="radio" id="vahesein" name="k1" value="Vahesein">
+                            <label for="vahesein" class="radio-button-label"></label>
+                        </td>
+                    </tr>
             </table>
             <table>
                 <tr>
@@ -63,7 +65,7 @@
                 <tr>
                     <td>Nähtavus 2</td>
                     <td><input type="radio" name="nahtavus2" value="Valjast Nahtav" checked="checked">väljast nähtav</td>
-                    <td><input type="radio" name="nahtavus2" value="Seest Nahtav"> väljast mittenähtav</td>
+                    <td><input type="radio" name="nahtavus2" value="Seest Nahtav"> seest nähtav</td>
                 </tr>
                 <tr>
                     <td>Materjal</td>

@@ -25,6 +25,30 @@ h1 {
     
 }
 
+.radio-button-label {
+    padding-left: 60px; /* Increase padding to make space for a larger image */
+    display: inline-block;
+    height: 60px; /* Increase height to match the new size of your image */
+    line-height: 60px; /* Adjust line height to vertically center the text */
+    vertical-align: middle;
+    cursor: pointer;
+    background-size: 60px 60px; /* Add this line to set the size of your image */
+}
+#kandevKulg + .radio-button-label {
+    background-image: url('90lagipohikuljevahel.png');
+}
+#lagiPeal + .radio-button-label {
+    background-image: url('90kulglaepohjavahel.png');
+}
+#eerung + .radio-button-label {
+    background-image: url('eerungis.png');
+}   
+#vaheriiul + .radio-button-label {
+    background-image: url('fixvaheriiul.png');
+}   
+#vahesein + .radio-button-label {
+    background-image: url('vahesein.png');
+}   
 table {
     width: 100%;
     margin-top: 20px;
