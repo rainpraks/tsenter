@@ -17,7 +17,8 @@ body {
 }
 
 h1 {
-    background: grey url('HTsenterhallläbipaistev.png')no-repeat;
+    background: grey no-repeat;
+    background-image: url('HTsenterhallläbipaistev.png');
     background-position: 20px center;
     background-size: 200px 50px;
     color: #fff;
