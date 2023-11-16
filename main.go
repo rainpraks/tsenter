@@ -41,6 +41,7 @@ func mainPage(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "404 Page not found")
 		return
 	}
+	fmt.Println("tootab")
 	tpl.ExecuteTemplate(w, "mainpage.html", nil)
 }
 
