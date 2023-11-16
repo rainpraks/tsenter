@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     padding: 0;
     margin: 0;
     width: 100%;
@@ -14,41 +15,52 @@ html, body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
 }
+
 h1 {
-    background: grey url(HTsenterhallläbipaistev.png)no-repeat;
+    background: grey url('HTsenterhallläbipaistev.png')no-repeat;
     background-position: 20px center;
     background-size: 200px 50px;
     color: #fff;
     padding: 20px 0;
     text-align: center;
     box-sizing: border-box;
-    
+
 }
 
 .radio-button-label {
-    padding-left: 60px; /* Increase padding to make space for a larger image */
+    padding-left: 60px;
+    /* Increase padding to make space for a larger image */
     display: inline-block;
-    height: 60px; /* Increase height to match the new size of your image */
-    line-height: 60px; /* Adjust line height to vertically center the text */
+    height: 60px;
+    /* Increase height to match the new size of your image */
+    line-height: 60px;
+    /* Adjust line height to vertically center the text */
     vertical-align: middle;
     cursor: pointer;
-    background-size: 60px 60px; /* Add this line to set the size of your image */
+    background-size: 60px 60px;
+    /* Add this line to set the size of your image */
 }
-#kandevKulg + .radio-button-label {
+
+#kandevKulg+.radio-button-label {
     background-image: url('90lagipohikuljevahel.png');
 }
-#lagiPeal + .radio-button-label {
+
+#lagiPeal+.radio-button-label {
     background-image: url('90kulglaepohjavahel.png');
 }
-#eerung + .radio-button-label {
+
+#eerung+.radio-button-label {
     background-image: url('eerungis.png');
-}   
-#vaheriiul + .radio-button-label {
+}
+
+#vaheriiul+.radio-button-label {
     background-image: url('fixvaheriiul.png');
-}   
-#vahesein + .radio-button-label {
+}
+
+#vahesein+.radio-button-label {
     background-image: url('vahesein.png');
-}   
+}
+
 table {
     width: 100%;
     margin-top: 20px;
@@ -58,11 +70,14 @@ table {
 }
 
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid #ddd;
 }
 
-th, td {
+th,
+td {
     text-align: left;
     padding: 8px;
 }
@@ -89,7 +104,8 @@ input[type="radio"] {
     margin-right: 10px;
 }
 
-#messageAvatav, #messageMittenähtav {
+#messageAvatav,
+#messageMittenähtav {
     width: 68%;
     margin: 10px 0;
     padding: 10px;
