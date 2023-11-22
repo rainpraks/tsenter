@@ -495,18 +495,18 @@ func ConvertStars(tech, con int) (string, string) {
 	tech -= techFullStars * 100 */
 	/* conHalfStars := con / 50
 	techHalfStars := tech / 50 */
-	conStars += strings.Join(make([]string, conFullStars+1), "★")
-	techStars += strings.Join(make([]string, techFullStars+1), "★")
-	techStars += "★★"
+	conStars += strings.Join(make([]string, conFullStars+1), "\u2605")
+	techStars += strings.Join(make([]string, techFullStars+1), "\u2605")
+	techStars += "\u2605\u2605"
 	for len(conStars) < 15 {
-		conStars += "☆"
+		conStars += "\u2606"
 	}
 	for len(techStars) < 15 {
 
-		techStars += "☆"
+		techStars += "\u2606"
 	}
 	if tech < 0 {
-		techStars = "☆☆☆☆☆"
+		techStars = "\u2606\u2606\u2606\u2606\u2606"
 	}
 	return techStars, conStars
 }
