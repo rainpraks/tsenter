@@ -195,7 +195,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"ServaPuurEI":  0,
 			"CNCjah":       100,
 			"CNCei":        0,
-			"LamelloJAH":   100,
+			"LamelloJAH":   0,
 			"LamelloEI":    0,
 			"dominoJAH":    0,
 			"dominoEI":     0,
@@ -491,19 +491,22 @@ func ConvertStars(tech, con int) (string, string) {
 	techStars := ""
 	conFullStars := con / 100
 	techFullStars := tech / 100
-	con -= conFullStars * 100
-	tech -= techFullStars * 100
+	/* con -= conFullStars * 100
+	tech -= techFullStars * 100 */
 	/* conHalfStars := con / 50
 	techHalfStars := tech / 50 */
 	conStars += strings.Join(make([]string, conFullStars+1), "★")
 	techStars += strings.Join(make([]string, techFullStars+1), "★")
-	techStars += "★"
+	techStars += "★★"
 	for len(conStars) < 15 {
 		conStars += "☆"
 	}
 	for len(techStars) < 15 {
 
 		techStars += "☆"
+	}
+	if tech < 0 {
+		techStars = "☆☆☆☆☆"
 	}
 	return techStars, conStars
 }
