@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="/static/style.css">
     <title>Furnituuri sobivus kalkulaator</title>
 </head>
+
 <body>
     <div class="content-container">
         <h1> Furnituuri sobivus kalkulaator</h1>
         <form id="myForm" action="/furnituur" method="POST">
             <section>
-                    <h2>Sisesta parameetrid:</h2> 
+                <h2>Sisesta parameetrid&#11240;:</h2>
             </section>
             <table id="furnituurid">
                     <tr>
@@ -65,7 +66,7 @@
                 <tr>
                     <td>Toote ühendused on liimitud</td>
                     <td><input type="radio" name="k3" value="Liimiga" checked="checked">liimiga </td>
-                    <td><input type="radio" name="k3" value="Liimita" > liimita</td>
+                    <td><input type="radio" name="k3" value="Liimita"> liimita</td>
                 </tr>
                 <tr>
                     <td>MONT/FP</td>
@@ -79,7 +80,8 @@
                 </tr>
                 <tr>
                     <td>Furnituuri nähtavus välis- või sisepindadel</td>
-                    <td><input type="radio" name="nahtavus2" value="Valjast Nahtav" checked="checked">väljast nähtav</td>
+                    <td><input type="radio" name="nahtavus2" value="Valjast Nahtav" checked="checked">väljast nähtav
+                    </td>
                     <td><input type="radio" name="nahtavus2" value="Seest Nahtav"> seest nähtav</td>
                 </tr>
                 <tr>
@@ -108,7 +110,8 @@
                 </tr>
                 <tr>
                     <td>Serva puurimise võimekus CNC-l või muul seadmel</td>
-                    <td><input type="radio" name="servapuurimisevoimekus" value="ServaPuurJAH" checked="checked">jah</td>
+                    <td><input type="radio" name="servapuurimisevoimekus" value="ServaPuurJAH" checked="checked">jah
+                    </td>
                     <td><input type="radio" name="servapuurimisevoimekus" value="ServaPuurEI">ei </td>
                 </tr>
                 <tr>
@@ -130,106 +133,107 @@
                 <div id="messageMittenähtav" style="display: none; color: red;"></div>
         </form>
         </table>
-            <section>
-                <h2>Tulemused:</h2> 
-            </section>
+        <section>
+            <h2>Tulemused:</h2>
+        </section>
         <table class="table">
-                <thead>
-                    <tr>
-                        <th>Furnituur</th>
-                        <th>Konstruktsiooni sobivus</th>
-                        <th>Tehnoloogia sobivus</th>
-                    </tr>
-                </thead>
+            <thead>
+                <tr>
+                    <th>Furnituur</th>
+                    <th>Konstruktsiooni sobivus</th>
+                    <th>Tehnoloogia sobivus</th>
+                </tr>
+            </thead>
             <tbody></tbody>
         </table>
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    function toggleLiimiga(enable) {
-                        document.querySelector('input[name="k3"][value="Liimiga"]').disabled = !enable;
-                        if (!enable) {
-                            document.querySelector('input[name="k3"][value="Liimita"]').checked = true;
-                        }
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                function toggleLiimiga(enable) {
+                    document.querySelector('input[name="k3"][value="Liimiga"]').disabled = !enable;
+                    if (!enable) {
+                        document.querySelector('input[name="k3"][value="Liimita"]').checked = true;
                     }
-
-                    function toggleNähtavus(enable) {
-                        document.querySelector('input[name="nahtavus2"][value="Valjast Nahtav"]').disabled = !enable;
-                        document.querySelector('input[name="nahtavus2"][value="Seest Nahtav"]').disabled = !enable;
-                        if (!enable) {
-                            document.querySelector('input[name="nahtavus2"][value="Valjast Nahtav"]').checked = false;
-                            document.querySelector('input[name="nahtavus2"][value="Seest Nahtav"]').checked = false;
-                        }
-                    }
-
-                    function showMessage(elementId, show, message) {
-                        var messageElement = document.getElementById(elementId);
-                        if (show) {
-                            messageElement.style.display = 'block';
-                            messageElement.textContent = message;
-                        } else {
-                            messageElement.style.display = 'none';
-                        }
-                    }
-
-                    document.querySelectorAll('input[name="k2"]').forEach(function (radio) {
-                        radio.addEventListener('change', function (e) {
-                            if (e.target.value === 'avatav') {
-                                toggleLiimiga(false);
-                                showMessage('messageAvatav', true, "Ei saa valida liimiga kui on valitud avatav furnituur");
-                            } else {
-                                toggleLiimiga(true);
-                                showMessage('messageAvatav', false);
-                            }
-                        });
-                    });
-
-                    document.querySelectorAll('input[name="nahtavus1"]').forEach(function (radio) {
-                        radio.addEventListener('change', function (e) {
-                            if (e.target.value === 'mittenahtav') {
-                                toggleNähtavus(false);
-                                showMessage('messageMittenähtav', true, "Ei saa valida väljast nähtav või seest nähtav kui on valitud mittenähtav furnituur.");
-                            } else {
-                                toggleNähtavus(true);
-                                showMessage('messageMittenähtav', false);
-                            }
-                        });
-                    });
-                });
-            </script>
-            <script>
-                async function loadIntoTable(url, table) {
-                    const tableBody = table.querySelector("tbody");
-
-                    async function updateTable() {
-                        const formData = new FormData(document.getElementById('myForm'));
-                        const response = await fetch(url, {
-                            method: 'POST',
-                            body: formData
-                        });
-                        const data = await response.json();
-                        tableBody.innerHTML = "";  // Clear existing table data
-
-                        // Iterate through each item in the data and add it to the table
-                        data.forEach(item => {
-                            const row = tableBody.insertRow();
-                            row.innerHTML = `<td>${item.Name}</td><td>${item.ConScore}</td><td>${item.TechScore}</td>`;
-                        });
-                    }
-
-                    // Attach event listener to radio buttons to update the table on change
-                    document.querySelectorAll('input[type="radio"]').forEach(radio => {
-                        radio.addEventListener('change', updateTable);
-                    });
-
-                    // Initial table population (optional)
-                    updateTable();
                 }
 
-                // Load data into the table when a radio button is clicked
-                // Note: Adjust the URL as per your server configuration
-                loadIntoTable("/furnituur", document.querySelector(".table"));
+                function toggleNähtavus(enable) {
+                    document.querySelector('input[name="nahtavus2"][value="Valjast Nahtav"]').disabled = !enable;
+                    document.querySelector('input[name="nahtavus2"][value="Seest Nahtav"]').disabled = !enable;
+                    if (!enable) {
+                        document.querySelector('input[name="nahtavus2"][value="Valjast Nahtav"]').checked = false;
+                        document.querySelector('input[name="nahtavus2"][value="Seest Nahtav"]').checked = false;
+                    }
+                }
 
-            </script>
-        </div>
-    </body>
+                function showMessage(elementId, show, message) {
+                    var messageElement = document.getElementById(elementId);
+                    if (show) {
+                        messageElement.style.display = 'block';
+                        messageElement.textContent = message;
+                    } else {
+                        messageElement.style.display = 'none';
+                    }
+                }
+
+                document.querySelectorAll('input[name="k2"]').forEach(function (radio) {
+                    radio.addEventListener('change', function (e) {
+                        if (e.target.value === 'avatav') {
+                            toggleLiimiga(false);
+                            showMessage('messageAvatav', true, "Ei saa valida liimiga kui on valitud avatav furnituur");
+                        } else {
+                            toggleLiimiga(true);
+                            showMessage('messageAvatav', false);
+                        }
+                    });
+                });
+
+                document.querySelectorAll('input[name="nahtavus1"]').forEach(function (radio) {
+                    radio.addEventListener('change', function (e) {
+                        if (e.target.value === 'mittenahtav') {
+                            toggleNähtavus(false);
+                            showMessage('messageMittenähtav', true, "Ei saa valida väljast nähtav või seest nähtav kui on valitud mittenähtav furnituur.");
+                        } else {
+                            toggleNähtavus(true);
+                            showMessage('messageMittenähtav', false);
+                        }
+                    });
+                });
+            });
+        </script>
+        <script>
+            async function loadIntoTable(url, table) {
+                const tableBody = table.querySelector("tbody");
+
+                async function updateTable() {
+                    const formData = new FormData(document.getElementById('myForm'));
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const data = await response.json();
+                    tableBody.innerHTML = "";  // Clear existing table data
+
+                    // Iterate through each item in the data and add it to the table
+                    data.forEach(item => {
+                        const row = tableBody.insertRow();
+                        row.innerHTML = `<td>${item.Name}</td><td>${item.ConStars}</td><td>${item.TechStars}</td>`;
+                    });
+                }
+
+                // Attach event listener to radio buttons to update the table on change
+                document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                    radio.addEventListener('change', updateTable);
+                });
+
+                // Initial table population (optional)
+                updateTable();
+            }
+
+            // Load data into the table when a radio button is clicked
+            // Note: Adjust the URL as per your server configuration
+            loadIntoTable("/furnituur", document.querySelector(".table"));
+
+        </script>
+    </div>
+</body>
+
 </html>

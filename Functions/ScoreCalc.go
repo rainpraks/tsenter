@@ -2,12 +2,14 @@ package functions
 
 import (
 	"sort"
+	"strings"
 )
 
 type ScoreSlice []Score
 type Score struct {
 	Name                string
 	ConScore, TechScore int
+	ConStars, TechStars string
 }
 
 // võta selle pikkus
@@ -43,37 +45,8 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Vahesein":       100,
 			"mitteavatav":    100,
 			"avatav":         0,
-			"Liimiga":        100,
-			"Liimita":        0,
-			"Monteeritud":    100,
-			"Flatpack":       0,
-			"Nahtav":         0,
-			"mittenahtav":    100,
-			"Valjast Nahtav": 0,
-			"Seest Nahtav":   0,
-
-			"ServaPuurJAH": 100,
-			"ServaPuurEI":  -100,
-			"CNCjah":       100,
-			"CNCei":        0,
-			"LamelloJAH":   100,
-			"LamelloEI":    0,
-			"dominoJAH":    0,
-			"dominoEI":     100,
-			"ovvoJah":      0,
-			"ovvoEI":       100,
-		},
-
-		"Läätsveeder": {
-			"Kandev Kulg":    100,
-			"Lagi Peal":      100,
-			"Eerung":         100,
-			"Vaheriiul":      100,
-			"Vahesein":       100,
-			"mitteavatav":    100,
-			"avatav":         0,
-			"Liimiga":        100,
-			"Liimita":        0,
+			"Liimiga":        0,
+			"Liimita":        100,
 			"Monteeritud":    100,
 			"Flatpack":       0,
 			"Nahtav":         0,
@@ -83,14 +56,43 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 
 			"ServaPuurJAH": 100,
 			"ServaPuurEI":  0,
-			"CNCjah":       150,
+			"CNCjah":       100,
+			"CNCei":        0,
+			"LamelloJAH":   0,
+			"LamelloEI":    0,
+			"dominoJAH":    0,
+			"dominoEI":     0,
+			"ovvoJah":      0,
+			"ovvoEI":       0,
+		},
+
+		"Läätsveeder": {
+			"Kandev Kulg":    100,
+			"Lagi Peal":      100,
+			"Eerung":         150,
+			"Vaheriiul":      100,
+			"Vahesein":       100,
+			"mitteavatav":    100,
+			"avatav":         0,
+			"Liimiga":        0,
+			"Liimita":        100,
+			"Monteeritud":    100,
+			"Flatpack":       0,
+			"Nahtav":         0,
+			"mittenahtav":    100,
+			"Valjast Nahtav": 0,
+			"Seest Nahtav":   0,
+
+			"ServaPuurJAH": 0,
+			"ServaPuurEI":  0,
+			"CNCjah":       0,
 			"CNCei":        0,
 			"LamelloJAH":   100,
 			"LamelloEI":    -100,
 			"dominoJAH":    0,
-			"dominoEI":     100,
+			"dominoEI":     0,
 			"ovvoJah":      0,
-			"ovvoEI":       100,
+			"ovvoEI":       0,
 		},
 
 		"Konstruktorkruvi": {
@@ -102,7 +104,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"mitteavatav":    0,
 			"avatav":         100,
 			"Liimiga":        0,
-			"Liimita":        100,
+			"Liimita":        0,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         100,
@@ -111,15 +113,15 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Seest Nahtav":   0,
 
 			"ServaPuurJAH": 100,
-			"ServaPuurEI":  -100,
+			"ServaPuurEI":  0,
 			"CNCjah":       100,
-			"CNCei":        100,
+			"CNCei":        0,
 			"LamelloJAH":   0,
-			"LamelloEI":    100,
+			"LamelloEI":    0,
 			"dominoJAH":    0,
-			"dominoEI":     100,
+			"dominoEI":     0,
 			"ovvoJah":      0,
-			"ovvoEI":       100,
+			"ovvoEI":       0,
 		},
 		"Mööblipolt + tapimutter": {
 			"Kandev Kulg":    100,
@@ -130,7 +132,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"mitteavatav":    0,
 			"avatav":         100,
 			"Liimiga":        0,
-			"Liimita":        100,
+			"Liimita":        0,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         100,
@@ -139,15 +141,15 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Seest Nahtav":   100,
 
 			"ServaPuurJAH": 100,
-			"ServaPuurEI":  -100,
+			"ServaPuurEI":  0,
 			"CNCjah":       100,
-			"CNCei":        100,
+			"CNCei":        0,
 			"LamelloJAH":   0,
-			"LamelloEI":    100,
+			"LamelloEI":    0,
 			"dominoJAH":    0,
-			"dominoEI":     100,
+			"dominoEI":     0,
 			"ovvoJah":      0,
-			"ovvoEI":       100,
+			"ovvoEI":       0,
 		},
 		"Minifix + tüübel": {
 			"Kandev Kulg":    100,
@@ -158,7 +160,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"mitteavatav":    0,
 			"avatav":         100,
 			"Liimiga":        0,
-			"Liimita":        100,
+			"Liimita":        0,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         100,
@@ -167,15 +169,15 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Seest Nahtav":   100,
 
 			"ServaPuurJAH": 100,
-			"ServaPuurEI":  -100,
+			"ServaPuurEI":  0,
 			"CNCjah":       100,
-			"CNCei":        100,
+			"CNCei":        0,
 			"LamelloJAH":   0,
-			"LamelloEI":    100,
+			"LamelloEI":    0,
 			"dominoJAH":    0,
-			"dominoEI":     100,
+			"dominoEI":     0,
 			"ovvoJah":      0,
-			"ovvoEI":       100,
+			"ovvoEI":       0,
 		},
 		"Maxifix + tüübel": {
 			"Kandev Kulg":    100,
@@ -186,7 +188,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"mitteavatav":    0,
 			"avatav":         100,
 			"Liimiga":        0,
-			"Liimita":        100,
+			"Liimita":        0,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         100,
@@ -195,15 +197,15 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Seest Nahtav":   100,
 
 			"ServaPuurJAH": 100,
-			"ServaPuurEI":  -100,
+			"ServaPuurEI":  0,
 			"CNCjah":       100,
 			"CNCei":        0,
-			"LamelloJAH":   100,
+			"LamelloJAH":   0,
 			"LamelloEI":    0,
 			"dominoJAH":    0,
-			"dominoEI":     100,
+			"dominoEI":     0,
 			"ovvoJah":      0,
-			"ovvoEI":       100,
+			"ovvoEI":       0,
 		}, "INVIS": {
 			"Kandev Kulg":    100,
 			"Lagi Peal":      100,
@@ -213,35 +215,35 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"mitteavatav":    0,
 			"avatav":         100,
 			"Liimiga":        0,
-			"Liimita":        100,
+			"Liimita":        0,
 			"Monteeritud":    100,
-			"Flatpack":       0,
+			"Flatpack":       100,
 			"Nahtav":         0,
 			"mittenahtav":    100,
 			"Valjast Nahtav": 0,
-			"Seest Nahtav":   000,
+			"Seest Nahtav":   0,
 
 			"ServaPuurJAH": 100,
-			"ServaPuurEI":  -100,
+			"ServaPuurEI":  0,
 			"CNCjah":       100,
 			"CNCei":        0,
-			"LamelloJAH":   100,
+			"LamelloJAH":   0,
 			"LamelloEI":    0,
 			"dominoJAH":    0,
-			"dominoEI":     100,
+			"dominoEI":     0,
 			"ovvoJah":      0,
-			"ovvoEI":       100,
+			"ovvoEI":       0,
 		},
 		"Rafix": {
-			"Kandev Kulg":    100,
+			"Kandev Kulg":    50,
 			"Lagi Peal":      0,
 			"Eerung":         0,
-			"Vaheriiul":      100,
+			"Vaheriiul":      150,
 			"Vahesein":       0,
 			"mitteavatav":    0,
 			"avatav":         100,
 			"Liimiga":        0,
-			"Liimita":        100,
+			"Liimita":        0,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         100,
@@ -250,15 +252,15 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Seest Nahtav":   100,
 
 			"ServaPuurJAH": 0,
-			"ServaPuurEI":  100,
+			"ServaPuurEI":  0,
 			"CNCjah":       100,
 			"CNCei":        0,
-			"LamelloJAH":   100,
+			"LamelloJAH":   0,
 			"LamelloEI":    0,
 			"dominoJAH":    0,
-			"dominoEI":     100,
+			"dominoEI":     0,
 			"ovvoJah":      0,
-			"ovvoEI":       100,
+			"ovvoEI":       0,
 		},
 		"Clamex P “LAMELLO”": {
 			"Kandev Kulg":    100,
@@ -269,7 +271,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"mitteavatav":    0,
 			"avatav":         100,
 			"Liimiga":        0,
-			"Liimita":        100,
+			"Liimita":        0,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         100,
@@ -278,15 +280,15 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Seest Nahtav":   100,
 
 			"ServaPuurJAH": 0,
-			"ServaPuurEI":  100,
-			"CNCjah":       150,
+			"ServaPuurEI":  0,
+			"CNCjah":       0,
 			"CNCei":        0,
 			"LamelloJAH":   100,
 			"LamelloEI":    -100,
 			"dominoJAH":    0,
-			"dominoEI":     100,
+			"dominoEI":     0,
 			"ovvoJah":      0,
-			"ovvoEI":       100,
+			"ovvoEI":       0,
 		},
 		"Tenso P “LAMELLO”": {
 			"Kandev Kulg":    100,
@@ -296,25 +298,25 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Vahesein":       100,
 			"mitteavatav":    100,
 			"avatav":         0,
-			"Liimiga":        100,
+			"Liimiga":        0,
 			"Liimita":        100,
 			"Monteeritud":    100,
-			"Flatpack":       100,
+			"Flatpack":       0,
 			"Nahtav":         0,
 			"mittenahtav":    100,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   0,
 
 			"ServaPuurJAH": 0,
-			"ServaPuurEI":  100,
-			"CNCjah":       150,
+			"ServaPuurEI":  0,
+			"CNCjah":       0,
 			"CNCei":        0,
 			"LamelloJAH":   100,
 			"LamelloEI":    -100,
 			"dominoJAH":    0,
-			"dominoEI":     100,
+			"dominoEI":     0,
 			"ovvoJah":      0,
-			"ovvoEI":       100,
+			"ovvoEI":       0,
 		},
 		"“DOMINO” puit": {
 			"Kandev Kulg":    100,
@@ -324,25 +326,25 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Vahesein":       100,
 			"mitteavatav":    100,
 			"avatav":         0,
-			"Liimiga":        100,
-			"Liimita":        0,
+			"Liimiga":        0,
+			"Liimita":        100,
 			"Monteeritud":    100,
-			"Flatpack":       100,
+			"Flatpack":       0,
 			"Nahtav":         0,
 			"mittenahtav":    100,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   0,
 
 			"ServaPuurJAH": 0,
-			"ServaPuurEI":  100,
-			"CNCjah":       150,
+			"ServaPuurEI":  0,
+			"CNCjah":       0,
 			"CNCei":        0,
 			"LamelloJAH":   0,
-			"LamelloEI":    100,
+			"LamelloEI":    0,
 			"dominoJAH":    100,
 			"dominoEI":     -100,
 			"ovvoJah":      0,
-			"ovvoEI":       100,
+			"ovvoEI":       0,
 		},
 		"“DOMINO” KV-LR32": {
 			"Kandev Kulg":    100,
@@ -353,7 +355,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"mitteavatav":    0,
 			"avatav":         100,
 			"Liimiga":        0,
-			"Liimita":        100,
+			"Liimita":        0,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         100,
@@ -362,15 +364,15 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Seest Nahtav":   100,
 
 			"ServaPuurJAH": 0,
-			"ServaPuurEI":  100,
-			"CNCjah":       150,
+			"ServaPuurEI":  0,
+			"CNCjah":       100,
 			"CNCei":        0,
 			"LamelloJAH":   0,
-			"LamelloEI":    100,
+			"LamelloEI":    0,
 			"dominoJAH":    100,
 			"dominoEI":     -100,
 			"ovvoJah":      0,
-			"ovvoEI":       100,
+			"ovvoEI":       0,
 		},
 		"”OVVO” Freesitav avatav": {
 			"Kandev Kulg":    100,
@@ -381,7 +383,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"mitteavatav":    0,
 			"avatav":         100,
 			"Liimiga":        0,
-			"Liimita":        100,
+			"Liimita":        0,
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         0,
@@ -390,13 +392,13 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Seest Nahtav":   0,
 
 			"ServaPuurJAH": 0,
-			"ServaPuurEI":  100,
-			"CNCjah":       150,
+			"ServaPuurEI":  0,
+			"CNCjah":       0,
 			"CNCei":        0,
 			"LamelloJAH":   0,
-			"LamelloEI":    100,
+			"LamelloEI":    0,
 			"dominoJAH":    0,
-			"dominoEI":     100,
+			"dominoEI":     0,
 			"ovvoJah":      100,
 			"ovvoEI":       -100,
 		},
@@ -451,12 +453,12 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			for furnituur, skoor := range furnituurid {
 				konstruktsioon[furnituur] += skoor[valik]
 			}
-		} else {
+		} /* else {
 			//paneb ühe juurde kui ei ole valitud
 			for furnituur := range furnituurid {
 				konstruktsioon[furnituur]++
 			}
-		}
+		} */
 	}
 	for valik, onValitud := range valitudTehnoloog {
 		if onValitud {
@@ -464,26 +466,52 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 				tehnoloogia[furnituur] += skoor[valik]
 
 			}
-		} else {
+		} /* else {
 			for furnituur := range furnituurid {
 				tehnoloogia[furnituur]++
 			}
-		}
+		} */
 	}
 	//teeb tühja  skoor slice
 	var list = ScoreSlice{}
 	//võtab kõik furnituuri nimed
 	for nimi := range furnituurid {
-
+		t, c := ConvertStars(tehnoloogia[nimi], konstruktsioon[nimi])
 		var s = Score{
 			Name:      nimi,
 			TechScore: tehnoloogia[nimi],
 			ConScore:  konstruktsioon[nimi],
+			TechStars: t,
+			ConStars:  c,
 		}
 		list = append(list, s)
 	}
-
 	sort.Sort(sort.Reverse(list))
 	return list
 
+}
+
+func ConvertStars(tech, con int) (string, string) {
+	conStars := ""
+	techStars := ""
+	conFullStars := con / 100
+	techFullStars := tech / 100
+	/* con -= conFullStars * 100
+	tech -= techFullStars * 100 */
+	/* conHalfStars := con / 50
+	techHalfStars := tech / 50 */
+	conStars += strings.Join(make([]string, conFullStars+1), "\u2605")
+	techStars += strings.Join(make([]string, techFullStars+1), "\u2605")
+	techStars += "\u2605\u2605"
+	for len(conStars) < 15 {
+		conStars += "\u2606"
+	}
+	for len(techStars) < 15 {
+
+		techStars += "\u2606"
+	}
+	if tech < 0 {
+		techStars = "\u2606\u2606\u2606\u2606\u2606"
+	}
+	return techStars, conStars
 }
