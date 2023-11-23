@@ -28,6 +28,11 @@ func (s ScoreSlice) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }
 
+/* type Score2 struct {
+	field map[string]int
+	image string
+} */
+
 func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 	furnituurid := map[string]map[string]int{
 		"Puittüübel keerdsooneline": {
