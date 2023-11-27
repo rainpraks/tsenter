@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"sort"
 )
 
 var tpl *template.Template
@@ -71,6 +72,7 @@ func resultHandler(w http.ResponseWriter, r *http.Request) {
 
 	// slaicib esimesed viis jätab alles.
 	list = list[:6]
+	sort.Sort(list)
 	//fmt.Print(list)
 	// teeb struct arrayst jsoni
 	serializedData, err := json.Marshal(list)
