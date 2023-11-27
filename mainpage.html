@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/style.css">
-    <title>Furnituuri sobivus kalkulaator</title>
+    <title>Furnituuri sobivuskalkulaator</title>
 </head>
 
 <body>
     <div class="content-container">
-        <h1> Furnituuri sobivus kalkulaator</h1>
+        <h1> Furnituuri sobivuskalkulaator</h1>
         <form id="myForm" action="/furnituur" method="POST">
             <section>
                 <h2>Sisesta parameetrid:</h2>
@@ -84,7 +84,7 @@
                     <td><input type="radio" name="nahtavus1" value="Nahtav" checked="checked">nähtav</td>
                     <td><input type="radio" name="nahtavus1" value="mittenahtav"> mittenähtav</td>
                 </tr>
-            <div id="messageMittenähtav" style="display: none; color: red;"></div>
+                <div id="messageMittenähtav" style="display: none; color: red;"></div>
                 <tr>
                     <td>Furnituuri nähtavus välis- või sisepindadel</td>
                     <td><input type="radio" name="nahtavus2" value="Valjast Nahtav" checked="checked">väljast nähtav
@@ -101,11 +101,11 @@
                             <option value="kergplaat">kergplaat</option>
                 <tr>
                     <td>Paksus</td>
-                    <td colspan="5"><input type="number" name="thickness" min="10" max="34" value="paksus">   mm</td>
+                    <td colspan="5"><input type="number" name="thickness" min="10" max="34" value="paksus"> mm</td>
                 </tr>
                 <tr>
                     <td sügavus class="highlighted">Koostu</td>
-                    <td colspan="6"><input type="number" name="thickness" min="40" max="700" value="sugavus">   mm</td>
+                    <td colspan="6"><input type="number" name="thickness" min="40" max="700" value="sugavus"> mm</td>
                 </tr>
                 <tr>
                     <th>Tehnoloogia valiku kriteeriumid</th>
@@ -145,9 +145,9 @@
         <table class="table3">
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th class="nrCell">#</th>
                     <th>Furnituur</th>
-                    <th>Konstruktsiooni sobivus</th>
+                    <th class="ConCell">Konstruktsiooni sobivus</th>
                     <th>Skoor</th>
                     <th>Tehnoloogia sobivus</th>
                     <th>Skoor</th>
@@ -224,9 +224,11 @@
                     // Iterate through each item in the data and add it to the table
                     data.forEach((item, index) => {
                         const row = tableBody.insertRow();
+                        const nrCell = row.insertCell();
+                        nrCell.textContent = `${index + 1 + "."}`;
+                        nrCell.style.width = '40px';
                         const nameCell = row.insertCell();
-                        nameCell.textContent = `${index + 1 + "."} ${item.Name}`;
-
+                        nameCell.textContent = `${item.Name}`;
                         // Create image element for image preview
                         const img = document.createElement('img');
                         img.src = item.Image; // Replace 'ImageURL' with the property holding image URL in your 'item' object
