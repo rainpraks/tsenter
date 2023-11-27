@@ -30,6 +30,7 @@ h1 {
 @media screen and (max-width: 1300px) {
     h1 {
         font-size: 20px; /* Smaller font size for smaller screens */
+        text-align: center;
         padding-left: 230px; /* Increase left padding to prevent text overlapping the logo */
         background-size: 150px 40px; /* Adjust background size for smaller screens */
         background-position: 10px center; /* Adjust position if needed */
