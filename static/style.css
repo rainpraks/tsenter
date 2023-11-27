@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     padding: 0;
     margin: 0;
     width: 100%;
@@ -7,7 +8,7 @@ html, body {
     background: rgb(44, 44, 44);
     background-image: url(mullemeeldibpuu.png);
     background-repeat: no-repeat;
-    background-position: top center; 
+    background-position: top center;
 }
 
 .content-container {
@@ -35,20 +36,28 @@ h1 {
 
 @media screen and (max-width: 1200px) {
     h1 {
-        font-size: 18px; /* Adjust font size for smaller screens */
-        padding-left: 160px; /* Adjust left padding to avoid overlapping the logo */
-        padding-right: 20px; /* Add right padding for better spacing */
-        background-size: 130px 35px; /* Adjust background size */
-        background-position: 10px center; /* Adjust background position */
+        font-size: 18px;
+        /* Adjust font size for smaller screens */
+        padding-left: 160px;
+        /* Adjust left padding to avoid overlapping the logo */
+        padding-right: 20px;
+        /* Add right padding for better spacing */
+        background-size: 130px 35px;
+        /* Adjust background size */
+        background-position: 10px center;
+        /* Adjust background position */
         text-align: center;
     }
 }
 
 @media screen and (max-width: 768px) {
     h1 {
-        font-size: 16px; /* Further reduce font size for very small screens */
-        padding-left: 140px; /* Further adjust left padding */
-        background-size: 110px 30px; /* Further adjust background size */
+        font-size: 16px;
+        /* Further reduce font size for very small screens */
+        padding-left: 140px;
+        /* Further adjust left padding */
+        background-size: 110px 30px;
+        /* Further adjust background size */
     }
 
     table {
@@ -126,6 +135,8 @@ table th {
     width: 50%;
 }
 
+
+
 table td {
     text-align: left;
     padding: 8px;
@@ -143,6 +154,15 @@ tr:nth-child(even) {
         overflow-x: auto;
     }
 }
+
+/* 
+.nrCell {
+    width: fit-content;
+}
+
+.ConCell {
+    width: fit-content;
+} */
 
 form {
     margin: 20px;
