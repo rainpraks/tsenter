@@ -7,8 +7,8 @@ import (
 	"strings"
 )
 
-const TechMax float64 = 500
-const ConMax float64 = 200
+const TechMax float64 = 200
+const ConMax float64 = 500
 
 type ScoreSlice []Score
 type Score struct {
@@ -494,6 +494,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 		}
 		list = append(list, s)
 	}
+	sort.Sort(list)
 	sort.Sort(sort.Reverse(list))
 	return list
 
@@ -528,14 +529,17 @@ func ConvertScore(tech, con int) (string, string) {
 		const TechMax int = 500
 		const ConMax int = 200
 	*/
+
 	techFloat := float64(tech)
 	conFloat := float64(con)
 	techPoint := 0.0
 	conPoint := 0.0
 
-	techPoint = roundFloat((techFloat/TechMax)*5, 2)
+	techPoint = roundFloat((techFloat/TechMax)*5, 1)
 
-	conPoint = roundFloat((conFloat/ConMax)*5, 2)
+	conPoint = roundFloat((conFloat/ConMax)*5, 1)
+	fmt.Println(tech, con)
+	fmt.Println(techPoint, conPoint)
 	return (fmt.Sprintf("%g", techPoint) + "/5"), (fmt.Sprintf("%g", conPoint) + "/5")
 }
 
