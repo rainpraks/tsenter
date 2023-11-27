@@ -16,43 +16,43 @@
                 <h2>Sisesta parameetrid:</h2>
             </section>
             <table id="furnituurid">
-                    <tr>
-                        <td>
-                            <input type="radio" id="kandevKulg" name="k1" value="Kandev Kulg" checked="checked">
-                            <label for="kandevKulg" class="radio-button-label">
-                                <span class="image-name">90 kraadi külg </span>
-                                    <a href="https://www.tsenter.ee" class="image-link" target="_blank">www.tsenter.ee</a>
-                            </label>
-                        </td>
-                        <td>
-                            <input type="radio" id="lagiPeal" name="k1" value="Lagi Peal" >
-                            <label for="lagiPeal" class="radio-button-label">
-                                <span class="image-name">90 kraadi lagi </span>
-                                    <a href="https://www.tsenter.ee" class="image-link" target="_blank">www.tsenter.ee</a>
-                            </label>
-                        </td>
-                        <td>
-                            <input type="radio" id="eerung" name="k1" value="Eerung">
-                            <label for="eerung" class="radio-button-label">
-                                <span class="image-name">Eerung </span>
-                                    <a href="https://www.tsenter.ee" class="image-link" target="_blank">www.tsenter.ee</a>
-                            </label>
-                        </td>
-                        <td>
-                            <input type="radio" id="vaheriiul" name="k1" value="Vaheriiul">
-                            <label for="vaheriiul" class="radio-button-label">
-                                <span class="image-name">Vaheriiul </span>
-                                    <a href="https://www.tsenter.ee" class="image-link" target="_blank">www.tsenter.ee</a>
-                            </label>
-                        </td>
-                        <td>
-                            <input type="radio" id="vahesein" name="k1" value="Vahesein">
-                            <label for="vahesein" class="radio-button-label">
-                                <span class="image-name">Vahesein </span>
-                                    <a href="https://www.tsenter.ee" class="image-link" target="_blank">www.tsenter.ee</a>
-                            </label>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        <input type="radio" id="kandevKulg" name="k1" value="Kandev Kulg" checked="checked">
+                        <label for="kandevKulg" class="radio-button-label">
+                            <span class="image-name">90 kraadi külg </span>
+                            <a href="https://www.tsenter.ee" class="image-link" target="_blank">www.tsenter.ee</a>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="radio" id="lagiPeal" name="k1" value="Lagi Peal">
+                        <label for="lagiPeal" class="radio-button-label">
+                            <span class="image-name">90 kraadi lagi </span>
+                            <a href="https://www.tsenter.ee" class="image-link" target="_blank">www.tsenter.ee</a>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="radio" id="eerung" name="k1" value="Eerung">
+                        <label for="eerung" class="radio-button-label">
+                            <span class="image-name">Eerung </span>
+                            <a href="https://www.tsenter.ee" class="image-link" target="_blank">www.tsenter.ee</a>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="radio" id="vaheriiul" name="k1" value="Vaheriiul">
+                        <label for="vaheriiul" class="radio-button-label">
+                            <span class="image-name">Vaheriiul </span>
+                            <a href="https://www.tsenter.ee" class="image-link" target="_blank">www.tsenter.ee</a>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="radio" id="vahesein" name="k1" value="Vahesein">
+                        <label for="vahesein" class="radio-button-label">
+                            <span class="image-name">Vahesein </span>
+                            <a href="https://www.tsenter.ee" class="image-link" target="_blank">www.tsenter.ee</a>
+                        </label>
+                    </td>
+                </tr>
             </table>
             <table id="table0">
                 <tr>
@@ -64,8 +64,8 @@
                     <td><input type="radio" name="k2" value="mitteavatav" checked="checked"> mitteavatav</td>
                 </tr>
             </table>
-                <div id="messageAvatav" style="display: none; color: red;">
-                </div>
+            <div id="messageAvatav" style="display: none; color: red;">
+            </div>
             <table id="table1">
                 <tr>
                     <td class="highlighted">Toote ühendused on liimitud</td>
@@ -101,11 +101,11 @@
                             <option value="kergplaat">kergplaat</option>
                 <tr>
                     <td>Paksus class="highlighted"</td>
-                    <td colspan="5"><input type="number" name="thickness" min="10" max="34" value="paksus">   mm</td>
+                    <td colspan="5"><input type="number" name="thickness" min="10" max="34" value="paksus"> mm</td>
                 </tr>
                 <tr>
                     <td>Koostu sügavus class="highlighted"</td>
-                    <td colspan="6"><input type="number" name="thickness" min="40" max="700" value="sugavus">   mm</td>
+                    <td colspan="6"><input type="number" name="thickness" min="40" max="700" value="sugavus"> mm</td>
                 </tr>
                 <tr>
                     <th>Tehnoloogia valiku kriteeriumid</th>
@@ -136,7 +136,7 @@
                     <td><input type="radio" name="OVVO" value="ovvoJah" checked="checked">jah</td>
                     <td><input type="radio" name="OVVO" value="ovvoEI">ei</td>
                 </tr>
-                
+
         </form>
         </table>
         <section>
@@ -222,16 +222,16 @@
                     tableBody.innerHTML = "";  // Clear existing table data
 
                     // Iterate through each item in the data and add it to the table
-                    data.forEach((item,index) => {
+                    data.forEach((item, index) => {
                         const row = tableBody.insertRow();
                         row.innerHTML = `
-                        <td>${index + 1}</td>
+                        <td>${index + 1 + "."}</td>
                         <td>${item.Name}</td>
                         <td>${item.ConStars}</td>
                         <td>${item.ConRating}</td>
                         <td>${item.TechStars}</td>
                         <td>${item.TechRating}</td>`
-                        ;
+                            ;
                     });
                 }
 
