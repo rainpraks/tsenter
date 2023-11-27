@@ -155,14 +155,14 @@ tr:nth-child(even) {
     }
 }
 
-/* 
+
 .nrCell {
     width: fit-content;
 }
 
 .ConCell {
     width: fit-content;
-} */
+}
 
 form {
     margin: 20px;

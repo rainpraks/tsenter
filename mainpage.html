@@ -226,7 +226,6 @@
                         const row = tableBody.insertRow();
                         const nrCell = row.insertCell();
                         nrCell.textContent = `${index + 1 + "."}`;
-                        nrCell.style.width = '40px';
                         const nameCell = row.insertCell();
                         nameCell.textContent = `${item.Name}`;
                         // Create image element for image preview
@@ -234,7 +233,7 @@
                         img.src = item.Image; // Replace 'ImageURL' with the property holding image URL in your 'item' object
                         img.classList.add('image-preview'); // Add CSS class to the image
                         document.body.appendChild(img); // Append image directly to the body element
-
+                        img.style.display = 'none';
                         // Event listeners for showing/hiding image on hover
                         nameCell.addEventListener('mouseenter', () => {
                             img.style.display = 'block';
