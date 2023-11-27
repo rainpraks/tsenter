@@ -27,16 +27,30 @@ h1 {
     padding: 20px 0;
     text-align: center;
     box-sizing: border-box;
+    font-size: 22px;
 
 }
 
 @media screen and (max-width: 1200px) {
     h1 {
-        font-size: 20px;
-        text-align: center;
-        padding-left: 230px; 
-        background-size: 150px 40px; 
-        background-position: 10px center; 
+        font-size: 18px; /* Adjust font size for smaller screens */
+        padding-left: 160px; /* Adjust left padding to avoid overlapping the logo */
+        padding-right: 20px; /* Add right padding for better spacing */
+        background-size: 130px 35px; /* Adjust background size */
+        background-position: 10px center; /* Adjust background position */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 16px; /* Further reduce font size for very small screens */
+        padding-left: 140px; /* Further adjust left padding */
+        background-size: 110px 30px; /* Further adjust background size */
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
     }
 }
 
@@ -91,14 +105,6 @@ h1 {
 #vahesein+.radio-button-label {
     background-image: url('Vahesein.jpg');
     background-repeat: no-repeat;
-}
-
-.highlighted {
-    background-color: white;
-    color: black;
-    text-align: left;
-    padding: 8px;
-    width: 50%;
 }
 
 table {
