@@ -156,13 +156,13 @@ tr:nth-child(even) {
 }
 
 
-/* .nrCell {
+.nrCell {
     width: fit-content;
 }
 
 .ConCell {
     width: fit-content;
-} */
+}
 
 form {
     margin: 20px;
@@ -194,13 +194,14 @@ button {
     cursor: pointer;
 }
 
+/*
 button:hover {
     background-color: #45a049;
 }
 
 @media screen and (max-width: 768px) {
     .container {
-        width: 95%;
+        width: 50%;
         margin: auto;
     }
 }
@@ -216,4 +217,4 @@ table {
     z-index: 9999;
     pointer-events: none;
 
-}
+}*/
