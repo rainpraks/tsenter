@@ -156,13 +156,13 @@ tr:nth-child(even) {
 }
 
 
-.nrCell {
+/* .nrCell {
     width: fit-content;
 }
 
 .ConCell {
     width: fit-content;
-}
+} */
 
 form {
     margin: 20px;
@@ -185,7 +185,7 @@ input[type="radio"] {
     border-left: 6px solid #f44336;
 }
 
-/* button {
+button {
     background-color: yellowgreen;
     color: white;
     padding: 10px 20px;
@@ -205,15 +205,15 @@ button:hover {
     }
 }
 
-    table {
-        display: block;
-        overflow-x: auto;
-    }
+table {
+    display: block;
+    overflow-x: auto;
+}
 
- .image-preview {
+.image-preview {
     position: fixed;
     display: none;
     z-index: 9999;
     pointer-events: none;
 
-} */
+}
