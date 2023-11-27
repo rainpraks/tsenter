@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 	"sort"
+	"strconv"
 	"strings"
 )
 
@@ -13,6 +14,7 @@ const ConMax float64 = 500
 type ScoreSlice []Score
 type Score struct {
 	Name                                       string
+	Image, Link                                string
 	ConScore, TechScore                        int
 	ConStars, TechStars, TechRating, ConRating string
 }
@@ -73,7 +75,6 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"ovvoJah":      0,
 			"ovvoEI":       0,
 		},
-
 		"Läätsveeder": {
 			"Kandev Kulg":    100,
 			"Lagi Peal":      100,
@@ -102,7 +103,6 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"ovvoJah":      0,
 			"ovvoEI":       0,
 		},
-
 		"Konstruktorkruvi": {
 			"Kandev Kulg":    100,
 			"Lagi Peal":      100,
@@ -214,7 +214,8 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"dominoEI":     0,
 			"ovvoJah":      0,
 			"ovvoEI":       0,
-		}, "INVIS": {
+		},
+		"INVIS": {
 			"Kandev Kulg":    100,
 			"Lagi Peal":      100,
 			"Eerung":         0,
@@ -483,7 +484,9 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 	//teeb tühja  skoor slice
 	var list = ScoreSlice{}
 	//võtab kõik furnituuri nimed
+	i := 10
 	for nimi := range furnituurid {
+
 		t, c := ConvertStars(tehnoloogia[nimi], konstruktsioon[nimi])
 		techS, conS := ConvertScore(tehnoloogia[nimi], konstruktsioon[nimi])
 		var s = Score{
@@ -494,8 +497,11 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			ConStars:   c,
 			TechRating: techS,
 			ConRating:  conS,
+			Image:      "https://picsum.photos/200/3" + strconv.Itoa(i),
+			Link:       "https://tsenter.ee/",
 		}
 		list = append(list, s)
+		i++
 	}
 	sort.Sort(list)
 	sort.Sort(sort.Reverse(list))

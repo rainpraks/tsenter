@@ -224,14 +224,63 @@
                     // Iterate through each item in the data and add it to the table
                     data.forEach((item, index) => {
                         const row = tableBody.insertRow();
-                        row.innerHTML = `
-                        <td>${index + 1 + "."}</td>
-                        <td>${item.Name}</td>
-                        <td>${item.ConStars}</td>
-                        <td>${item.ConRating}</td>
-                        <td>${item.TechStars}</td>
-                        <td>${item.TechRating}</td>`
-                            ;
+                        const nameCell = row.insertCell();
+                        nameCell.textContent = `${index + 1 + "."} ${item.Name}`;
+
+                        // Create image element for image preview
+                        const img = document.createElement('img');
+                        img.src = item.Image; // Replace 'ImageURL' with the property holding image URL in your 'item' object
+                        img.classList.add('image-preview'); // Add CSS class to the image
+                        document.body.appendChild(img); // Append image directly to the body element
+
+                        // Event listeners for showing/hiding image on hover
+                        nameCell.addEventListener('mouseenter', () => {
+                            img.style.display = 'block';
+                        });
+
+                        nameCell.addEventListener('mousemove', (event) => {
+                            const mouseX = event.clientX;
+                            const mouseY = event.clientY;
+                            const imgWidth = img.offsetWidth;
+                            const imgHeight = img.offsetHeight;
+                            const windowWidth = window.innerWidth;
+                            const windowHeight = window.innerHeight;
+
+                            let imgLeft = mouseX + 10; // Horizontal offset
+                            let imgTop = mouseY + 10; // Vertical offset
+
+                            // Adjust image position to stay within viewport boundaries
+                            if (imgLeft + imgWidth > windowWidth) {
+                                imgLeft = windowWidth - imgWidth;
+                            }
+                            if (imgTop + imgHeight > windowHeight) {
+                                imgTop = windowHeight - imgHeight;
+                            }
+
+                            img.style.left = imgLeft + 'px';
+                            img.style.top = imgTop + 'px';
+                        });
+
+                        nameCell.addEventListener('mouseleave', () => {
+                            img.style.display = 'none';
+                        });
+
+
+                        // Append image to the table cell
+                        nameCell.appendChild(img);
+
+                        // Add other cells as per your requirement
+                        const conStarsCell = row.insertCell();
+                        conStarsCell.textContent = item.ConStars;
+
+                        const conRatingCell = row.insertCell();
+                        conRatingCell.textContent = item.ConRating;
+
+                        const techStarsCell = row.insertCell();
+                        techStarsCell.textContent = item.TechStars;
+
+                        const techRatingCell = row.insertCell();
+                        techRatingCell.textContent = item.TechRating;
                     });
                 }
 
