@@ -9,7 +9,7 @@ body {
 }
 
 .content-container {
-    max-width: 70%;
+    max-width: 80%;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -92,34 +92,78 @@ h1 {
     background-repeat: no-repeat;
 }
 
+.highlighted {
+    background-color: white;
+    color: black;
+    text-align: left;
+    padding: 8px;
+    width: 50%;  
+}
+
 table {
-    width: 100%;
+    width: 100%; 
     margin-top: 20px;
     border-collapse: collapse;
     border: 1px solid #ddd;
-
+    background-color: #fff;
 }
-
-
-table,
-th,
-td {
-    border: 1px solid #ddd;
-}
-
-th,
-td {
-    text-align: left;
-    padding: 8px;
-}
-
-th {
+table th {
     background-color: grey;
     color: white;
+    text-align: left;
+    padding: 8px;
+    width: 50%;
+}
+
+table td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
 }
 
 tr:nth-child(even) {
     background-color: #f2f2f2;
+}
+
+
+@media screen and (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto; /* Allows table to scroll on small screens */
+    }
+}
+
+/* Ensure no margins between tables */
+#table0,
+#table1,
+#table2 {
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+}
+
+/* Remove any cellspacing if it's defined inline within your HTML tables */
+table {
+    border-spacing: 0; /* If your tables have cellspacing attributes, this will override it */
+}
+
+/* Error message styles */
+#messageAvatav,
+#messageMittenähtav {
+    display: none; /* Hide by default */
+    margin-top: 20px; /* Space will be added before table when the message is shown */
+    margin-bottom: 20px; /* Space after the message */
+    /* ... other styles ... */
+}
+
+/* Add space above table1 only if an error message is visible above it */
+#messageAvatav:visible + #table1 {
+    margin-top: 20px;
+}
+
+/* Add space above table2 only if an error message is visible above it */
+#messageMittenähtav:visible + #table2 {
+    margin-top: 20px;
 }
 
 

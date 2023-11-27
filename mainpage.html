@@ -54,38 +54,45 @@
                         </td>
                     </tr>
             </table>
-            <table>
+            <table id="table0">
                 <tr>
                     <th>Konstruktsiooni valiku kriteeriumid</th>
                 </tr>
                 <tr>
-                    <td>Toote ühendused on avatavad ja korduvalt monteeritavad</td>
+                    <td class="highlighted">Toote ühendused on avatavad ja korduvalt monteeritavad</td>
                     <td><input type="radio" name="k2" value="avatav">avatav</td>
                     <td><input type="radio" name="k2" value="mitteavatav" checked="checked"> mitteavatav</td>
                 </tr>
+            </table>
+                <div id="messageAvatav" style="display: none; color: red;">
+                </div>
+            <table id="table1">
                 <tr>
-                    <td>Toote ühendused on liimitud</td>
+                    <td class="highlighted">Toote ühendused on liimitud</td>
                     <td><input type="radio" name="k3" value="Liimiga" checked="checked">liimiga </td>
                     <td><input type="radio" name="k3" value="Liimita"> liimita</td>
                 </tr>
                 <tr>
-                    <td>MONT/FP</td>
+                    <td class="highlighted">MONT/FP</td>
                     <td><input type="radio" name="mont/fp" value="Monteeritud" checked="checked">monteeritud</td>
                     <td><input type="radio" name="mont/fp" value="Flatpack"> flatpack</td>
                 </tr>
                 <tr>
-                    <td>Furnituuri nähtavus toote pindadel</td>
+                    <td class="highlighted">Furnituuri nähtavus toote pindadel</td>
                     <td><input type="radio" name="nahtavus1" value="Nahtav" checked="checked">nähtav</td>
                     <td><input type="radio" name="nahtavus1" value="mittenahtav"> mittenähtav</td>
                 </tr>
+            </table>
+            <div id="messageMittenähtav" style="display: none; color: red;"></div>
+            <table id="tabel2">
                 <tr>
-                    <td>Furnituuri nähtavus välis- või sisepindadel</td>
+                    <td class="highlighted">Furnituuri nähtavus välis- või sisepindadel</td>
                     <td><input type="radio" name="nahtavus2" value="Valjast Nahtav" checked="checked">väljast nähtav
                     </td>
                     <td><input type="radio" name="nahtavus2" value="Seest Nahtav"> seest nähtav</td>
                 </tr>
                 <tr>
-                    <td>Materjal</td>
+                    <td>Materjal class="highlighted"</td>
                     <td><select>
                             <option value="taispuit">täispuit</option>
                             <option value="vineer">vineer</option>
@@ -93,55 +100,56 @@
                             <option value="PLP">PLP</option>
                             <option value="kergplaat">kergplaat</option>
                 <tr>
-                    <td>Paksus</td>
+                    <td>Paksus class="highlighted"</td>
                     <td colspan="5"><input type="number" name="thickness" min="10" max="34" value="paksus">   mm</td>
                 </tr>
                 <tr>
-                    <td>Koostu sügavus</td>
+                    <td>Koostu sügavus class="highlighted"</td>
                     <td colspan="6"><input type="number" name="thickness" min="40" max="700" value="sugavus">   mm</td>
                 </tr>
                 <tr>
                     <th>Tehnoloogia valiku kriteeriumid</th>
                 </tr>
                 <tr>
-                    <td>CNC vertikaalse freesimise ja puurimise võimekusega</td>
+                    <td class="highlighted">CNC vertikaalse freesimise ja puurimise võimekusega</td>
                     <td><input type="radio" name="CNC" value="CNCjah" checked="checked">jah</td>
-                    <td><input type="radio" name="CNC" value="CNCei"> ei</td>
+                    <td><input type="radio" name="CNC" value="CNCei">ei</td>
                 </tr>
                 <tr>
-                    <td>Serva puurimise võimekus CNC-l või muul seadmel</td>
+                    <td class="highlighted">Serva puurimise võimekus CNC-l või muul seadmel</td>
                     <td><input type="radio" name="servapuurimisevoimekus" value="ServaPuurJAH" checked="checked">jah
                     </td>
                     <td><input type="radio" name="servapuurimisevoimekus" value="ServaPuurEI">ei </td>
                 </tr>
                 <tr>
-                    <td>Lamello masin või vastav agregaat CNC-le</td>
+                    <td class="highlighted">Lamello masin või vastav agregaat CNC-le</td>
                     <td><input type="radio" name="Lamello" value="LamelloJAH" checked="checked">jah</td>
-                    <td><input type="radio" name="Lamello" value="LamelloEI"> ei</td>
+                    <td><input type="radio" name="Lamello" value="LamelloEI">ei</td>
                 </tr>
                 <tr>
-                    <td>Domino masin või vastav agregaat CNC-le</td>
+                    <td class="highlighted">Domino masin või vastav agregaat CNC-le</td>
                     <td><input type="radio" name="Domino" value="dominoJAH" checked="checked">jah</td>
-                    <td><input type="radio" name="Domino" value="dominoEI"> ei</td>
+                    <td><input type="radio" name="Domino" value="dominoEI">ei</td>
                 </tr>
                 <tr>
-                    <td>OVVO masin või vastav agregaat CNC-le</td>
+                    <td class="highlighted">OVVO masin või vastav agregaat CNC-le</td>
                     <td><input type="radio" name="OVVO" value="ovvoJah" checked="checked">jah</td>
-                    <td><input type="radio" name="OVVO" value="ovvoEI"> ei</td>
+                    <td><input type="radio" name="OVVO" value="ovvoEI">ei</td>
                 </tr>
-                <div id="messageAvatav" style="display: none; color: red;"></div>
-                <div id="messageMittenähtav" style="display: none; color: red;"></div>
+                
         </form>
         </table>
         <section>
             <h2>Tulemused:</h2>
         </section>
-        <table class="table">
+        <table class="table3">
             <thead>
                 <tr>
                     <th>Furnituur</th>
                     <th>Konstruktsiooni sobivus</th>
+                    <th>Skoor</th>
                     <th>Tehnoloogia sobivus</th>
+                    <th>Skoor</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -215,7 +223,13 @@
                     // Iterate through each item in the data and add it to the table
                     data.forEach(item => {
                         const row = tableBody.insertRow();
-                        row.innerHTML = `<td>${item.Name}</td><td>${item.ConStars}</td><td>${item.TechStars}</td>`;
+                        row.innerHTML = `
+                        <td>${item.Name}</td>
+                        <td>${item.ConStars}</td>
+                        <td>${item.ConRating}</td>
+                        <td>${item.TechStars}</td>
+                        <td>${item.TechRating}</td>`
+                        ;
                     });
                 }
 
@@ -230,7 +244,7 @@
 
             // Load data into the table when a radio button is clicked
             // Note: Adjust the URL as per your server configuration
-            loadIntoTable("/furnituur", document.querySelector(".table"));
+            loadIntoTable("/furnituur", document.querySelector(".table3"));
 
         </script>
     </div>
