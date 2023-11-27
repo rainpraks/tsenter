@@ -1,15 +1,20 @@
 package functions
 
 import (
+	"fmt"
+	"math"
 	"sort"
 	"strings"
 )
 
+const TechMax float64 = 500
+const ConMax float64 = 200
+
 type ScoreSlice []Score
 type Score struct {
-	Name                string
-	ConScore, TechScore int
-	ConStars, TechStars string
+	Name                                       string
+	ConScore, TechScore                        int
+	ConStars, TechStars, TechRating, ConRating string
 }
 
 // võta selle pikkus
@@ -477,12 +482,15 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 	//võtab kõik furnituuri nimed
 	for nimi := range furnituurid {
 		t, c := ConvertStars(tehnoloogia[nimi], konstruktsioon[nimi])
+		techS, conS := ConvertScore(tehnoloogia[nimi], konstruktsioon[nimi])
 		var s = Score{
-			Name:      nimi,
-			TechScore: tehnoloogia[nimi],
-			ConScore:  konstruktsioon[nimi],
-			TechStars: t,
-			ConStars:  c,
+			Name:       nimi,
+			TechScore:  tehnoloogia[nimi],
+			ConScore:   konstruktsioon[nimi],
+			TechStars:  t,
+			ConStars:   c,
+			TechRating: techS,
+			ConRating:  conS,
 		}
 		list = append(list, s)
 	}
@@ -514,4 +522,24 @@ func ConvertStars(tech, con int) (string, string) {
 		techStars = "\u2606\u2606\u2606\u2606\u2606"
 	}
 	return techStars, conStars
+}
+func ConvertScore(tech, con int) (string, string) {
+	/*
+		const TechMax int = 500
+		const ConMax int = 200
+	*/
+	techFloat := float64(tech)
+	conFloat := float64(con)
+	techPoint := 0.0
+	conPoint := 0.0
+
+	techPoint = roundFloat((techFloat/TechMax)*5, 2)
+
+	conPoint = roundFloat((conFloat/ConMax)*5, 2)
+	return (fmt.Sprintf("%g", techPoint) + "/5"), (fmt.Sprintf("%g", conPoint) + "/5")
+}
+
+func roundFloat(val float64, precision uint) float64 {
+	ratio := math.Pow(10, float64(precision))
+	return math.Round(val*ratio) / ratio
 }
