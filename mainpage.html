@@ -145,6 +145,7 @@
         <table class="table3">
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>Furnituur</th>
                     <th>Konstruktsiooni sobivus</th>
                     <th>Skoor</th>
@@ -221,9 +222,10 @@
                     tableBody.innerHTML = "";  // Clear existing table data
 
                     // Iterate through each item in the data and add it to the table
-                    data.forEach(item => {
+                    data.forEach((item,index) => {
                         const row = tableBody.insertRow();
                         row.innerHTML = `
+                        <td>${index + 1}</td>
                         <td>${item.Name}</td>
                         <td>${item.ConStars}</td>
                         <td>${item.ConRating}</td>
