@@ -6,13 +6,15 @@ body {
     height: 100%;
     font-family: 'Raleway', sans-serif;
     background: rgb(44, 44, 44);
+    background-image: url(mullemeeldibpuu.png);
+    background-repeat: no-repeat;
+    background-position: top center;
 }
 
 .content-container {
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
 }
 
@@ -29,211 +31,218 @@ h1 {
 }
 
 @media screen and (max-width: 1300px) {
-    h1 {
-        font-size: 20px;
-        /* Smaller font size for smaller screens */
+    @media screen and (max-width: 500px) {
+        h1 {
+            font-size: 20px;
+            /* Smaller font size for smaller screens */
+            text-align: center;
+            padding-left: 230px;
+            /* Increase left padding to prevent text overlapping the logo */
+            background-size: 150px 40px;
+            /* Adjust background size for smaller screens */
+            background-position: 10px center;
+            /* Adjust position if needed */
+        }
+    }
+
+    .radio-button-label {
+        position: relative;
+        padding-left: 130px;
+        /* Increase padding to make space for a larger image */
+        display: inline-block;
+        height: 200px;
+        /* Increase height to match the new size of your image */
+        line-height: 120px;
+        /* Adjust line height to vertically center the text */
+        vertical-align: middle;
+        cursor: pointer;
+        background-size: 150px 150px;
+        /* Add this line to set the size of your image */
+    }
+
+    .radio-button-label .image-name,
+    .radio-button-label .image-link {
+        position: absolute;
+        top: 110px;
+        /* Adjust this value as needed to move the text/link up or down */
+        left: 0;
+        right: 0;
         text-align: center;
-        padding-left: 230px;
-        /* Increase left padding to prevent text overlapping the logo */
-        background-size: 150px 40px;
-        /* Adjust background size for smaller screens */
-        background-position: 10px center;
-        /* Adjust position if needed */
+        color: black;
+        /* Or any other color */
+        font-weight: bold;
+        z-index: 10;
     }
-}
 
-.radio-button-label {
-    position: relative;
-    padding-left: 130px;
-    /* Increase padding to make space for a larger image */
-    display: inline-block;
-    height: 200px;
-    /* Increase height to match the new size of your image */
-    line-height: 120px;
-    /* Adjust line height to vertically center the text */
-    vertical-align: middle;
-    cursor: pointer;
-    background-size: 150px 150px;
-    /* Add this line to set the size of your image */
-}
-
-.radio-button-label .image-name,
-.radio-button-label .image-link {
-    position: absolute;
-    top: 110px;
-    /* Adjust this value as needed to move the text/link up or down */
-    left: 0;
-    right: 0;
-    text-align: center;
-    color: black;
-    /* Or any other color */
-    font-weight: bold;
-    z-index: 10;
-}
-
-.radio-button-label .image-link {
-    top: 125px;
-    /* Adjust to position the link just below the image name */
-    color: #0000EE;
-    /* Link color */
-}
-
-#kandevKulg+.radio-button-label {
-    background-image: url('90kraadikulg.jpg');
-    background-repeat: no-repeat;
-}
-
-#lagiPeal+.radio-button-label {
-    background-image: url('90kraadilagi.jpg');
-    background-repeat: no-repeat;
-}
-
-#eerung+.radio-button-label {
-    background-image: url('eerung.jpg');
-    background-repeat: no-repeat;
-}
-
-#vaheriiul+.radio-button-label {
-    background-image: url('vaheriiul.jpg');
-    background-repeat: no-repeat;
-}
-
-#vahesein+.radio-button-label {
-    background-image: url('Vahesein.jpg');
-    background-repeat: no-repeat;
-}
-
-.highlighted {
-    background-color: white;
-    color: black;
-    text-align: left;
-    padding: 8px;
-    width: 50%;
-}
-
-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-    border: 1px solid #ddd;
-    background-color: #fff;
-}
-
-table th {
-    background-color: grey;
-    color: white;
-    text-align: left;
-    padding: 8px;
-    width: 50%;
-}
-
-table td {
-    text-align: left;
-    padding: 8px;
-    border: 1px solid #ddd;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-
-@media screen and (max-width: 768px) {
-    table {
-        display: block;
-        overflow-x: auto;
-        /* Allows table to scroll on small screens */
+    .radio-button-label .image-link {
+        top: 125px;
+        /* Adjust to position the link just below the image name */
+        color: #0000EE;
+        /* Link color */
     }
-}
 
-/* Ensure no margins between tables */
-#table0,
-#table1,
-#table2 {
-    margin: 0;
-    padding: 0;
-    border-collapse: collapse;
-}
+    #kandevKulg+.radio-button-label {
+        background-image: url('90kraadikulg.jpg');
+        background-repeat: no-repeat;
+    }
 
-/* Remove any cellspacing if it's defined inline within your HTML tables */
-table {
-    border-spacing: 0;
-    /* If your tables have cellspacing attributes, this will override it */
-}
+    #lagiPeal+.radio-button-label {
+        background-image: url('90kraadilagi.jpg');
+        background-repeat: no-repeat;
+    }
 
-/* Error message styles */
-#messageAvatav,
-#messageMittenähtav {
-    display: none;
-    /* Hide by default */
-    margin-top: 20px;
-    /* Space will be added before table when the message is shown */
-    margin-bottom: 20px;
-    /* Space after the message */
-    /* ... other styles ... */
-}
+    #eerung+.radio-button-label {
+        background-image: url('eerung.jpg');
+        background-repeat: no-repeat;
+    }
 
-/* Add space above table1 only if an error message is visible above it */
-#messageAvatav:visible+#table1 {
-    margin-top: 20px;
-}
+    #vaheriiul+.radio-button-label {
+        background-image: url('vaheriiul.jpg');
+        background-repeat: no-repeat;
+    }
 
-/* Add space above table2 only if an error message is visible above it */
-#messageMittenähtav:visible+#table2 {
-    margin-top: 20px;
-}
+    #vahesein+.radio-button-label {
+        background-image: url('Vahesein.jpg');
+        background-repeat: no-repeat;
+    }
 
-
-form {
-    margin: 20px;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-input[type="radio"] {
-    margin-right: 10px;
-}
-
-#messageAvatav,
-#messageMittenähtav {
-    width: 68%;
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #ffdddd;
-    border-left: 6px solid #f44336;
-}
-
-button {
-    background-color: yellowgreen;
-    color: white;
-    padding: 10px 20px;
-    margin: 10px 0;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-@media screen and (max-width: 768px) {
-    .container {
-        width: 95%;
-        margin: auto;
+    .highlighted {
+        background-color: white;
+        color: black;
+        text-align: left;
+        padding: 8px;
+        width: 50%;
     }
 
     table {
-        display: block;
-        overflow-x: auto;
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+        background-color: #fff;
     }
-}
 
-.image-preview {
-    position: fixed;
-    display: none;
-    z-index: 9999;
-    pointer-events: none;
-    /* To allow interaction with underlying elements */
-}
+    table th {
+        background-color: grey;
+        color: white;
+        text-align: left;
+        padding: 8px;
+        width: 50%;
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: grey;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+
+    @media screen and (max-width: 768px) {
+        table {
+            display: block;
+            overflow-x: auto;
+            /* Allows table to scroll on small screens */
+        }
+    }
+
+    /* Ensure no margins between tables */
+    #table0,
+    #table1,
+    #table2 {
+        margin: 0;
+        padding: 0;
+        border-collapse: collapse;
+    }
+
+    /* Remove any cellspacing if it's defined inline within your HTML tables */
+    table {
+        border-spacing: 0;
+        /* If your tables have cellspacing attributes, this will override it */
+    }
+
+    /* Error message styles */
+    #messageAvatav,
+    #messageMittenähtav {
+        display: none;
+        /* Hide by default */
+        margin-top: 20px;
+        /* Space will be added before table when the message is shown */
+        margin-bottom: 20px;
+        /* Space after the message */
+        /* ... other styles ... */
+    }
+
+    /* Add space above table1 only if an error message is visible above it */
+    #messageAvatav:visible+#table1 {
+        margin-top: 20px;
+    }
+
+    /* Add space above table2 only if an error message is visible above it */
+    #messageMittenähtav:visible+#table2 {
+        margin-top: 20px;
+    }
+
+
+    form {
+        margin: 20px;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="radio"] {
+        margin-right: 10px;
+    }
+
+    #messageAvatav,
+    #messageMittenähtav {
+        width: 68%;
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #ffdddd;
+        border-left: 6px solid #f44336;
+    }
+
+    button {
+        background-color: yellowgreen;
+        color: white;
+        padding: 10px 20px;
+        margin: 10px 0;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    @media screen and (max-width: 768px) {
+        .container {
+            width: 95%;
+            margin: auto;
+        }
+
+        table {
+            display: block;
+            overflow-x: auto;
+        }
+    }
+
+    .image-preview {
+        position: fixed;
+        display: none;
+        z-index: 9999;
+        pointer-events: none;
+        /* To allow interaction with underlying elements */
+    }

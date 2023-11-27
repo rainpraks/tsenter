@@ -54,45 +54,45 @@
                     </td>
                 </tr>
             </table>
-            <table id="table0">
+            <table>
                 <tr>
                     <th>Konstruktsiooni valiku kriteeriumid</th>
                 </tr>
                 <tr>
-                    <td class="highlighted">Toote ühendused on avatavad ja korduvalt monteeritavad</td>
+                    <td>
+                        Toote ühendused on avatavad ja korduvalt monteeritavad
+
+                        <div id="messageAvatav" class="error-message" style="display: none; color: red;"></div>
+                    </td>
                     <td><input type="radio" name="k2" value="avatav">avatav</td>
                     <td><input type="radio" name="k2" value="mitteavatav" checked="checked"> mitteavatav</td>
                 </tr>
-            </table>
-            <div id="messageAvatav" style="display: none; color: red;">
-            </div>
-            <table id="table1">
+                <div id="messageAvatav" style="display: none; color: red;">
+                </div>
                 <tr>
-                    <td class="highlighted">Toote ühendused on liimitud</td>
+                    <td>Toote ühendused on liimitud</td>
                     <td><input type="radio" name="k3" value="Liimiga" checked="checked">liimiga </td>
                     <td><input type="radio" name="k3" value="Liimita"> liimita</td>
                 </tr>
                 <tr>
-                    <td class="highlighted">MONT/FP</td>
+                    <td>MONT/FP</td>
                     <td><input type="radio" name="mont/fp" value="Monteeritud" checked="checked">monteeritud</td>
                     <td><input type="radio" name="mont/fp" value="Flatpack"> flatpack</td>
                 </tr>
                 <tr>
-                    <td class="highlighted">Furnituuri nähtavus toote pindadel</td>
+                    <td>Furnituuri nähtavus toote pindadel</td>
                     <td><input type="radio" name="nahtavus1" value="Nahtav" checked="checked">nähtav</td>
                     <td><input type="radio" name="nahtavus1" value="mittenahtav"> mittenähtav</td>
                 </tr>
-            </table>
             <div id="messageMittenähtav" style="display: none; color: red;"></div>
-            <table id="tabel2">
                 <tr>
-                    <td class="highlighted">Furnituuri nähtavus välis- või sisepindadel</td>
+                    <td>Furnituuri nähtavus välis- või sisepindadel</td>
                     <td><input type="radio" name="nahtavus2" value="Valjast Nahtav" checked="checked">väljast nähtav
                     </td>
                     <td><input type="radio" name="nahtavus2" value="Seest Nahtav"> seest nähtav</td>
                 </tr>
                 <tr>
-                    <td>Materjal class="highlighted"</td>
+                    <td>Materjal</td>
                     <td><select>
                             <option value="taispuit">täispuit</option>
                             <option value="vineer">vineer</option>
@@ -100,39 +100,39 @@
                             <option value="PLP">PLP</option>
                             <option value="kergplaat">kergplaat</option>
                 <tr>
-                    <td>Paksus class="highlighted"</td>
-                    <td colspan="5"><input type="number" name="thickness" min="10" max="34" value="paksus"> mm</td>
+                    <td>Paksus</td>
+                    <td colspan="5"><input type="number" name="thickness" min="10" max="34" value="paksus">   mm</td>
                 </tr>
                 <tr>
-                    <td>Koostu sügavus class="highlighted"</td>
-                    <td colspan="6"><input type="number" name="thickness" min="40" max="700" value="sugavus"> mm</td>
+                    <td sügavus class="highlighted">Koostu</td>
+                    <td colspan="6"><input type="number" name="thickness" min="40" max="700" value="sugavus">   mm</td>
                 </tr>
                 <tr>
                     <th>Tehnoloogia valiku kriteeriumid</th>
                 </tr>
                 <tr>
-                    <td class="highlighted">CNC vertikaalse freesimise ja puurimise võimekusega</td>
+                    <td>CNC vertikaalse freesimise ja puurimise võimekusega</td>
                     <td><input type="radio" name="CNC" value="CNCjah" checked="checked">jah</td>
                     <td><input type="radio" name="CNC" value="CNCei">ei</td>
                 </tr>
                 <tr>
-                    <td class="highlighted">Serva puurimise võimekus CNC-l või muul seadmel</td>
+                    <td>Serva puurimise võimekus CNC-l või muul seadmel</td>
                     <td><input type="radio" name="servapuurimisevoimekus" value="ServaPuurJAH" checked="checked">jah
                     </td>
                     <td><input type="radio" name="servapuurimisevoimekus" value="ServaPuurEI">ei </td>
                 </tr>
                 <tr>
-                    <td class="highlighted">Lamello masin või vastav agregaat CNC-le</td>
+                    <td>Lamello masin või vastav agregaat CNC-le</td>
                     <td><input type="radio" name="Lamello" value="LamelloJAH" checked="checked">jah</td>
                     <td><input type="radio" name="Lamello" value="LamelloEI">ei</td>
                 </tr>
                 <tr>
-                    <td class="highlighted">Domino masin või vastav agregaat CNC-le</td>
+                    <td>Domino masin või vastav agregaat CNC-le</td>
                     <td><input type="radio" name="Domino" value="dominoJAH" checked="checked">jah</td>
                     <td><input type="radio" name="Domino" value="dominoEI">ei</td>
                 </tr>
                 <tr>
-                    <td class="highlighted">OVVO masin või vastav agregaat CNC-le</td>
+                    <td>OVVO masin või vastav agregaat CNC-le</td>
                     <td><input type="radio" name="OVVO" value="ovvoJah" checked="checked">jah</td>
                     <td><input type="radio" name="OVVO" value="ovvoEI">ei</td>
                 </tr>
