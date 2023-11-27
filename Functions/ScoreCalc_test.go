@@ -32,8 +32,8 @@ func TestScoreCalc(t *testing.T) {
 
 func TestConvertStars(t *testing.T) {
 	type args struct {
-		con  int
 		tech int
+		con  int
 	}
 	tests := []struct {
 		name  string
@@ -44,11 +44,11 @@ func TestConvertStars(t *testing.T) {
 		{
 			name: "Test case 1: 500 score",
 			args: struct {
-				con  int
 				tech int
+				con  int
 			}{
-				con:  500,
 				tech: 500,
+				con:  200,
 			},
 			want:  "★★★★★",
 			want1: "★★★★★",
@@ -56,11 +56,11 @@ func TestConvertStars(t *testing.T) {
 		{
 			name: "Test case 2: 400 score",
 			args: struct {
-				con  int
 				tech int
+				con  int
 			}{
-				con:  400,
-				tech: 400,
+				tech: 500,
+				con:  -100,
 			},
 			want:  "★★★★☆",
 			want1: "★★★★☆",
@@ -68,11 +68,11 @@ func TestConvertStars(t *testing.T) {
 		{
 			name: "Test case 3: 300 score",
 			args: struct {
-				con  int
 				tech int
+				con  int
 			}{
-				con:  300,
-				tech: 300,
+				tech: 500,
+				con:  200,
 			},
 			want:  "★★★☆☆",
 			want1: "★★★☆☆",
@@ -80,11 +80,11 @@ func TestConvertStars(t *testing.T) {
 		{
 			name: "Test case 4: 200 score",
 			args: struct {
-				con  int
 				tech int
+				con  int
 			}{
+				tech: 500,
 				con:  200,
-				tech: 200,
 			},
 			want:  "★★☆☆☆",
 			want1: "★★☆☆☆",
@@ -92,11 +92,11 @@ func TestConvertStars(t *testing.T) {
 		{
 			name: "Test case 5: 100 score",
 			args: struct {
-				con  int
 				tech int
+				con  int
 			}{
-				con:  100,
-				tech: 100,
+				tech: 500,
+				con:  200,
 			},
 			want:  "★☆☆☆☆",
 			want1: "★☆☆☆☆",
@@ -130,8 +130,8 @@ func TestConvertScore(t *testing.T) {
 		{
 			name: "Test 1: max score",
 			args: args{
-				con:  200,
-				tech: 500,
+				con:  500,
+				tech: 200,
 			},
 			want:  "5/5",
 			want1: "5/5",

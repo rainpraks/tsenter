@@ -24,10 +24,13 @@ func (s ScoreSlice) Len() int {
 
 // võrdleb kahte elementi
 func (s ScoreSlice) Less(i, j int) bool {
-	// Calculate the sum of attributes for comparison
 	sum1 := s[i].TechScore + s[i].ConScore
 	sum2 := s[j].TechScore + s[j].ConScore
-	return sum1 < sum2 // Change to > for descending order
+
+	if sum1 != sum2 {
+		return sum1 < sum2
+	}
+	return s[i].Name < s[j].Name
 }
 
 // vahetab kahe asja kohad
@@ -504,30 +507,32 @@ func ConvertStars(tech, con int) (string, string) {
 	conStars := ""
 	techStars := ""
 	conFullStars := con / 100
-	techFullStars := tech / 100
-	/* con -= conFullStars * 100
-	tech -= techFullStars * 100 */
-	/* conHalfStars := con / 50
-	techHalfStars := tech / 50 */
+	techFullStars := tech / 40
+
+	if tech%40 != 0 { //kui ei tule taisarv jagamisel siis sisuliselt ymardab yles (tegelt lisab alla ymardatud numbrile +1)
+		techFullStars += 1
+	}
+
+	if tech < 0 { //ei soovi negatiivseid skoore aga nad tekivad hetkese systeemiga
+		techFullStars = 0
+	}
+
 	conStars += strings.Join(make([]string, conFullStars+1), "\u2605")
 	techStars += strings.Join(make([]string, techFullStars+1), "\u2605")
-	techStars += "\u2605\u2605"
-	for len(conStars) < 15 {
+
+	for len(conStars) < 15 { // kui on vahem kui 5 t2rni siis lisab tyhja t2rni. 15 sest selle taheelemendi pikkus on 3
 		conStars += "\u2606"
 	}
 	for len(techStars) < 15 {
 
 		techStars += "\u2606"
 	}
-	if tech < 0 {
-		techStars = "\u2606\u2606\u2606\u2606\u2606"
-	}
 	return techStars, conStars
 }
 func ConvertScore(tech, con int) (string, string) {
 	/*
-		const TechMax int = 500
-		const ConMax int = 200
+		const TechMax int = 200
+		const ConMax int = 500
 	*/
 
 	techFloat := float64(tech)
@@ -538,8 +543,6 @@ func ConvertScore(tech, con int) (string, string) {
 	techPoint = roundFloat((techFloat/TechMax)*5, 1)
 
 	conPoint = roundFloat((conFloat/ConMax)*5, 1)
-	fmt.Println(tech, con)
-	fmt.Println(techPoint, conPoint)
 	return (fmt.Sprintf("%g", techPoint) + "/5"), (fmt.Sprintf("%g", conPoint) + "/5")
 }
 
