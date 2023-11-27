@@ -19,6 +19,9 @@ body {
 }
 
 h1 {
+    max-width: 96%;
+    margin-left: auto;
+    margin-right: auto;
     background: grey no-repeat;
     background-image: url('HTLogo.png');
     background-position: 20px center;
@@ -30,13 +33,11 @@ h1 {
 
 }
 @media screen and (max-width: 500px) {
-    h1 {
         font-size: 20px; /* Smaller font size for smaller screens */
         text-align: center;
         padding-left: 230px; /* Increase left padding to prevent text overlapping the logo */
         background-size: 150px 40px; /* Adjust background size for smaller screens */
         background-position: 10px center; /* Adjust position if needed */
-    }
 }
 .radio-button-label {
     position: relative;
