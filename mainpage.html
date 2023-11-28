@@ -234,6 +234,7 @@
                         img.classList.add('image-preview'); // Add CSS class to the image
                         document.body.appendChild(img); // Append image directly to the body element
                         img.style.display = 'none';
+                        img.style.maxHeight = '300px'
                         // Event listeners for showing/hiding image on hover
                         nameCell.addEventListener('mouseenter', () => {
                             img.style.display = 'block';
@@ -247,8 +248,8 @@
                             const windowWidth = window.innerWidth;
                             const windowHeight = window.innerHeight;
 
-                            let imgLeft = mouseX + 10; // Horizontal offset
-                            let imgTop = mouseY + 10; // Vertical offset
+                            let imgLeft = mouseX; // Horizontal offset
+                            let imgTop = mouseY + -imgHeight; // Vertical offset
 
                             // Adjust image position to stay within viewport boundaries
                             if (imgLeft + imgWidth > windowWidth) {

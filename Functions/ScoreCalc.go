@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"math"
 	"sort"
-	"strconv"
 	"strings"
 )
 
@@ -484,7 +483,6 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 	//teeb tühja  skoor slice
 	var list = ScoreSlice{}
 	//võtab kõik furnituuri nimed
-	i := 10
 	for nimi := range furnituurid {
 
 		t, c := ConvertStars(tehnoloogia[nimi], konstruktsioon[nimi])
@@ -497,11 +495,10 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			ConStars:   c,
 			TechRating: techS,
 			ConRating:  conS,
-			Image:      "https://picsum.photos/200/3" + strconv.Itoa(i),
+			Image:      "/static/" + nimi + ".jpg",
 			Link:       "https://tsenter.ee/",
 		}
 		list = append(list, s)
-		i++
 	}
 	sort.Sort(list)
 	sort.Sort(sort.Reverse(list))
