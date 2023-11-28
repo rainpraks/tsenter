@@ -31,6 +31,9 @@ func (s ScoreSlice) Less(i, j int) bool {
 	if sum1 != sum2 {
 		return sum1 < sum2
 	}
+	if s[i].ConScore != s[j].ConScore {
+		return s[i].ConScore < s[j].ConScore
+	}
 	return s[i].Name < s[j].Name
 }
 
@@ -485,6 +488,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 	//võtab kõik furnituuri nimed
 	for nimi := range furnituurid {
 
+		img := "/static/" + nimi + ".jpg"
 		t, c := ConvertStars(tehnoloogia[nimi], konstruktsioon[nimi])
 		techS, conS := ConvertScore(tehnoloogia[nimi], konstruktsioon[nimi])
 		var s = Score{
@@ -495,7 +499,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			ConStars:   c,
 			TechRating: techS,
 			ConRating:  conS,
-			Image:      "/static/" + nimi + ".jpg",
+			Image:      img,
 			Link:       "https://tsenter.ee/",
 		}
 		list = append(list, s)
