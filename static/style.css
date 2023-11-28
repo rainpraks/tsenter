@@ -118,6 +118,22 @@ h1 {
     background-image: url('Vahesein.jpg');
     background-repeat: no-repeat;
 }
+.table3 {
+    width: 100%; 
+    table-layout: fixed; 
+    border-collapse: collapse;
+}
+
+.table3 th, .table3 td {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+
+.table3 th, .table3 td {
+    width: 20%;
+}
 
 table {
     width: 100%;
