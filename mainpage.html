@@ -87,7 +87,8 @@
                 <div id="messageMittenähtav" style="display: none; color: red;"></div>
                 <tr>
                     <td>Furnituuri nähtavus välis- või sisepindadel</td>
-                    <td><input type="checkbox" name="nahtavus2" value="Valjast Nahtav" checked="checked">väljast nähtav</td>
+                    <td><input type="checkbox" name="nahtavus2" value="Valjast Nahtav" checked="checked">väljast nähtav
+                    </td>
                     <td><input type="checkbox" name="nahtavus2" value="Seest Nahtav"> seest nähtav</td>
                 </tr>
                 <tr>
@@ -226,7 +227,14 @@
                         const nrCell = row.insertCell();
                         nrCell.textContent = `${index + 1 + "."}`;
                         const nameCell = row.insertCell();
-                        nameCell.textContent = `${item.Name}`;
+
+                        const link = document.createElement('a'); // Create an anchor element
+                        link.textContent = item.Name; // Set the text content of the anchor element
+                        link.href = item.Link; // Set the href attribute of the anchor element
+                        link.target = "_blank"; // Set the target attribute to open in a new tab (optional)
+
+                        // Append the anchor element to the table cell
+                        nameCell.appendChild(link);
                         // Create image element for image preview
                         const img = document.createElement('img');
                         img.src = item.Image; // Replace 'ImageURL' with the property holding image URL in your 'item' object
