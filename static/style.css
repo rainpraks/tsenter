@@ -122,6 +122,7 @@ h1 {
     width: 100%; 
     table-layout: fixed; 
     border-collapse: collapse;
+
 }
 
 .table3 th, .table3 td {
@@ -134,7 +135,10 @@ h1 {
 .table3 th, .table3 td {
     width: 20%;
 }
-
+.table3 th.nrCell, .table3 td.nrCell {
+    width: 20px;
+    /* or use width: auto; if fit-content does not work as expected */
+}
 table {
     width: 100%;
     margin-top: 20px;
