@@ -289,6 +289,10 @@
                 document.querySelectorAll('input[type="radio"]').forEach(radio => {
                     radio.addEventListener('change', updateTable);
                 });
+                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.addEventListener('input', updateTable);
+                });
+
 
                 // Initial table population (optional)
                 updateTable();
