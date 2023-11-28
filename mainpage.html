@@ -86,9 +86,10 @@
                 </tr>
                 <div id="messageMittenähtav" style="display: none; color: red;"></div>
                 <tr>
-                    <td>Furnituuri nähtavus välis- või sisepindadel (saad valida </td>
-                    <td><input type="checkbox" name="nahtavus2" value="Valjast Nahtav" checked="checked">väljast nähtav</td>
-                    <td><input type="checkbox" name="nahtavus2" value="Seest Nahtav"> seest nähtav</td>
+                    <td>Furnituuri nähtavus välis- või sisepindadel</td>
+                    <td><input type="checkbox" name="nahtavus2" value="Valjast Nahtav" checked="checked">väljast nähtav
+                    </td>
+                    <td><input type="checkbox" name="nahtavus22" value="Seest Nahtav"> seest nähtav</td>
                     <!-- <td><input type="radio" name="nahtavus2" value="Seest ja Valjast Nahtav"> seest ja väljast nähtav</td> -->
                 </tr>
                 <tr>
@@ -290,6 +291,10 @@
                 document.querySelectorAll('input[type="radio"]').forEach(radio => {
                     radio.addEventListener('change', updateTable);
                 });
+                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.addEventListener('input', updateTable);
+                });
+
 
                 // Initial table population (optional)
                 updateTable();
