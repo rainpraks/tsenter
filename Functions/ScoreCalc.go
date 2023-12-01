@@ -109,7 +109,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Kandev Kulg":    100,
 			"Lagi Peal":      100,
 			"Eerung":         0,
-			"Vaheriiul":      100,
+			"Vaheriiul":      50,
 			"Vahesein":       100,
 			"mitteavatav":    0,
 			"avatav":         100,
@@ -137,7 +137,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Kandev Kulg":    100,
 			"Lagi Peal":      100,
 			"Eerung":         0,
-			"Vaheriiul":      100,
+			"Vaheriiul":      150,
 			"Vahesein":       100,
 			"mitteavatav":    0,
 			"avatav":         100,
@@ -228,7 +228,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Liimiga":        0,
 			"Liimita":        0,
 			"Monteeritud":    100,
-			"Flatpack":       100,
+			"Flatpack":       50,
 			"Nahtav":         0,
 			"mittenahtav":    100,
 			"Valjast Nahtav": 0,
@@ -276,7 +276,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 		"Clamex P “LAMELLO”": {
 			"Kandev Kulg":    100,
 			"Lagi Peal":      100,
-			"Eerung":         100,
+			"Eerung":         150,
 			"Vaheriiul":      100,
 			"Vahesein":       100,
 			"mitteavatav":    0,
@@ -304,7 +304,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 		"Tenso P “LAMELLO”": {
 			"Kandev Kulg":    100,
 			"Lagi Peal":      100,
-			"Eerung":         100,
+			"Eerung":         150,
 			"Vaheriiul":      100,
 			"Vahesein":       100,
 			"mitteavatav":    100,
@@ -312,7 +312,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Liimiga":        0,
 			"Liimita":        100,
 			"Monteeritud":    100,
-			"Flatpack":       0,
+			"Flatpack":       50,
 			"Nahtav":         0,
 			"mittenahtav":    100,
 			"Valjast Nahtav": 0,
@@ -388,7 +388,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 		"”OVVO” Freesitav avatav": {
 			"Kandev Kulg":    100,
 			"Lagi Peal":      100,
-			"Eerung":         100,
+			"Eerung":         50,
 			"Vaheriiul":      100,
 			"Vahesein":       100,
 			"mitteavatav":    0,
@@ -457,11 +457,20 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 	//tühjad mapid selleks et skoori arvutada
 	konstruktsioon := make(map[string]int)
 	tehnoloogia := make(map[string]int)
+	doit := false
+	if valitudKonstrukt["Valjast Nahtav"] && valitudKonstrukt["Seest Nahtav"] {
+		valitudKonstrukt["Valjast Nahtav"] = false
+		valitudKonstrukt["Seest Nahtav"] = false
+		doit = true
+	}
 	//kui on true..
 	for valik, onValitud := range valitudKonstrukt {
 		if onValitud {
 			//lisab skoori juurde
 			for furnituur, skoor := range furnituurid {
+				if furnituur == "Mööblipolt + tapimutter" && doit {
+					konstruktsioon[furnituur] += 100
+				}
 				konstruktsioon[furnituur] += skoor[valik]
 			}
 		} /* else {
@@ -482,6 +491,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 				tehnoloogia[furnituur]++
 			}
 		} */
+
 	}
 	//teeb tühja  skoor slice
 	var list = ScoreSlice{}
