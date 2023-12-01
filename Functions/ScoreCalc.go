@@ -459,6 +459,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 	tehnoloogia := make(map[string]int)
 	doit := false
 	if valitudKonstrukt["Valjast Nahtav"] && valitudKonstrukt["Seest Nahtav"] {
+		fmt.Println("tra")
 		valitudKonstrukt["Valjast Nahtav"] = false
 		valitudKonstrukt["Seest Nahtav"] = false
 		doit = true
@@ -470,6 +471,8 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			for furnituur, skoor := range furnituurid {
 				if furnituur == "Mööblipolt + tapimutter" && doit {
 					konstruktsioon[furnituur] += 100
+					fmt.Println("works")
+					doit = false
 				}
 				konstruktsioon[furnituur] += skoor[valik]
 			}
