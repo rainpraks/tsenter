@@ -147,8 +147,8 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Flatpack":       100,
 			"Nahtav":         100,
 			"mittenahtav":    0,
-			"Valjast Nahtav": 100,
-			"Seest Nahtav":   100,
+			"Valjast Nahtav": 00,
+			"Seest Nahtav":   00,
 
 			"ServaPuurJAH": 100,
 			"ServaPuurEI":  0,
