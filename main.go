@@ -81,6 +81,8 @@ func resultHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Print("ERROR")
 	}
 
+	functions.Email()
+
 	/* fmt.Println(string(serializedData)) */
 	// saad õelda mis headerit on vaja. Saadame välja jsonit.
 	w.Header().Set("Content-Type", "application/json")
