@@ -108,8 +108,6 @@ func resultHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Print("ERROR")
 	}
 
-	functions.Email("lukas.haavel@gmail.com", "Lukas", "TESTING123")
-
 	/* fmt.Println(string(serializedData)) */
 	// saad õelda mis headerit on vaja. Saadame välja jsonit.
 	w.Header().Set("Content-Type", "application/json")
