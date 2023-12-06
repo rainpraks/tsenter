@@ -62,13 +62,13 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Monteeritud":    100,
 			"Flatpack":       0,
 			"Nahtav":         0,
-			"mittenahtav":    100,
+			"mittenahtav":    200,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   0,
 
-			"ServaPuurJAH": 100,
+			"ServaPuurJAH": 50,
 			"ServaPuurEI":  0,
-			"CNCjah":       100,
+			"CNCjah":       50,
 			"CNCei":        0,
 			"LamelloJAH":   0,
 			"LamelloEI":    0,
@@ -90,7 +90,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Monteeritud":    100,
 			"Flatpack":       0,
 			"Nahtav":         0,
-			"mittenahtav":    100,
+			"mittenahtav":    200,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   0,
 
@@ -122,9 +122,9 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Valjast Nahtav": 100,
 			"Seest Nahtav":   0,
 
-			"ServaPuurJAH": 100,
+			"ServaPuurJAH": 50,
 			"ServaPuurEI":  0,
-			"CNCjah":       100,
+			"CNCjah":       50,
 			"CNCei":        0,
 			"LamelloJAH":   0,
 			"LamelloEI":    0,
@@ -137,7 +137,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Kandev Kulg":    100,
 			"Lagi Peal":      100,
 			"Eerung":         0,
-			"Vaheriiul":      150,
+			"Vaheriiul":      50,
 			"Vahesein":       100,
 			"mitteavatav":    0,
 			"avatav":         100,
@@ -147,12 +147,12 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Flatpack":       100,
 			"Nahtav":         100,
 			"mittenahtav":    0,
-			"Valjast Nahtav": 00,
-			"Seest Nahtav":   00,
+			"Valjast Nahtav": 50,
+			"Seest Nahtav":   50,
 
-			"ServaPuurJAH": 100,
+			"ServaPuurJAH": 50,
 			"ServaPuurEI":  0,
-			"CNCjah":       100,
+			"CNCjah":       50,
 			"CNCei":        0,
 			"LamelloJAH":   0,
 			"LamelloEI":    0,
@@ -178,9 +178,9 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   100,
 
-			"ServaPuurJAH": 100,
+			"ServaPuurJAH": 50,
 			"ServaPuurEI":  0,
-			"CNCjah":       100,
+			"CNCjah":       50,
 			"CNCei":        0,
 			"LamelloJAH":   0,
 			"LamelloEI":    0,
@@ -206,9 +206,9 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   100,
 
-			"ServaPuurJAH": 100,
+			"ServaPuurJAH": 50,
 			"ServaPuurEI":  0,
-			"CNCjah":       100,
+			"CNCjah":       50,
 			"CNCei":        0,
 			"LamelloJAH":   0,
 			"LamelloEI":    0,
@@ -230,13 +230,13 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Monteeritud":    100,
 			"Flatpack":       50,
 			"Nahtav":         0,
-			"mittenahtav":    100,
+			"mittenahtav":    200,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   0,
 
-			"ServaPuurJAH": 100,
+			"ServaPuurJAH": 50,
 			"ServaPuurEI":  0,
-			"CNCjah":       100,
+			"CNCjah":       50,
 			"CNCei":        0,
 			"LamelloJAH":   0,
 			"LamelloEI":    0,
@@ -314,7 +314,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Monteeritud":    100,
 			"Flatpack":       50,
 			"Nahtav":         0,
-			"mittenahtav":    100,
+			"mittenahtav":    200,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   0,
 
@@ -342,7 +342,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Monteeritud":    100,
 			"Flatpack":       0,
 			"Nahtav":         0,
-			"mittenahtav":    100,
+			"mittenahtav":    200,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   0,
 
@@ -376,7 +376,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 
 			"ServaPuurJAH": 0,
 			"ServaPuurEI":  0,
-			"CNCjah":       100,
+			"CNCjah":       0,
 			"CNCei":        0,
 			"LamelloJAH":   0,
 			"LamelloEI":    0,
@@ -398,7 +398,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"Monteeritud":    100,
 			"Flatpack":       100,
 			"Nahtav":         0,
-			"mittenahtav":    100,
+			"mittenahtav":    200,
 			"Valjast Nahtav": 0,
 			"Seest Nahtav":   0,
 
@@ -527,7 +527,7 @@ func ConvertStars(tech, con int) (string, string) {
 	conStars := ""
 	techStars := ""
 	conFullStars := con / 100
-	techFullStars := tech / 40
+	techFullStars := tech / 20
 
 	if tech%40 != 0 { //kui ei tule taisarv jagamisel siis sisuliselt ymardab yles (tegelt lisab alla ymardatud numbrile +1)
 		techFullStars += 1
