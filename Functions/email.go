@@ -25,7 +25,7 @@ func Email(email, nimi, sisu string) string {
 	subject := "Tagasiside kasutajalt " + nimi
 	body := "Kasutaja email: " + email + "\n" + sisu
 
-	message := []byte(subject + "\r\n" + body)
+	message := []byte("Subject: " + subject + "\r\n" + body)
 
 	auth := smtp.PlainAuth("", from, password, host)
 	err := smtp.SendMail(address, auth, from, to, message)
