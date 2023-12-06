@@ -155,13 +155,13 @@
             <form action="/submit-feedback" method="post">
                 
                 <label for="name"></label>
-                <input type="text" id="name" name="name" placeholder="Teie nimi"><br>
+                <input type="text" id="name" name="name" placeholder="Teie nimi" required><br>
 
                 <label for="email"></label>
-                <input type="email" id="email" name="email" placeholder="Teie e-mail"><br>
+                <input type="email" id="email" name="email" placeholder="Teie e-mail" required><br>
 
                 <label for="feedback"></label>
-                <textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="Kirjutage siia oma tagasiside..."></textarea><br>
+                <textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="Kirjutage siia oma tagasiside..." required></textarea><br>
 
                 <input type="submit" value="Saada Tagasiside">
                 <div id="feedbackMessage" style="display:none; color:black; font-weight: bold; "></div>
@@ -188,6 +188,7 @@
                 // Assuming the server sends back a plain text message on success
                 document.getElementById('feedbackMessage').style.display = 'block';
                 document.getElementById('feedbackMessage').textContent = data.Message;
+                form.reset();
                 })
              });
             });
