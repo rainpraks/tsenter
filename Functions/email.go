@@ -23,7 +23,7 @@ func Email(email, nimi, sisu string) string {
 
 	address := host + ":" + port
 
-	subject := "Tagasiside kasutajalt " + nimi
+	subject := "Furnituuri kalkulaatori tagasiside kasutajalt " + nimi
 	body := "\nKasutaja email: " + email + "\n" + sisu
 
 	message := []byte("Subject: " + subject + "\r\n" + body)

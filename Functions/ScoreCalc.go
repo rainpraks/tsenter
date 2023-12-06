@@ -25,8 +25,8 @@ func (s ScoreSlice) Len() int {
 
 // võrdleb kahte elementi
 func (s ScoreSlice) Less(i, j int) bool {
-	sum1 := s[i].TechScore + s[i].ConScore
-	sum2 := s[j].TechScore + s[j].ConScore
+	sum1 := s[i].TechScore*5 + s[i].ConScore
+	sum2 := s[j].TechScore*5 + s[j].ConScore //*5 sest tech max on 100 ja con max on 500
 
 	if sum1 != sum2 {
 		return sum1 < sum2
