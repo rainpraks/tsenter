@@ -10,6 +10,10 @@ import (
 	"os"
 )
 
+type ResponseData struct {
+	Message string `json:message`
+}
+
 var tpl *template.Template
 
 func main() {
@@ -29,6 +33,8 @@ func main() {
 	fmt.Println("Listening on port: ", port)
 	//url kutsub ja resultHandler funktsioon käivitub
 	http.HandleFunc("/furnituur", resultHandler)
+
+	http.HandleFunc("/submit-feedback", emailSender)
 	//+port võtame heroku jaoks pordi.
 	err2 := http.ListenAndServe(":"+port, nil)
 	if err2 != nil {
@@ -36,12 +42,33 @@ func main() {
 	}
 }
 
+func emailSender(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		fmt.Fprint(w, "404 Page not found")
+	}
+
+	response := ResponseData{}
+	email := r.FormValue("email")
+	nimi := r.FormValue("name")
+	sisu := r.FormValue("feedback")
+	msgStr := functions.Email(email, nimi, sisu)
+
+	response.Message = msgStr
+	jsonResponse, err := json.Marshal(response)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(jsonResponse)
+}
+
 func mainPage(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		fmt.Fprint(w, "404 Page not found")
 		return
 	}
-	fmt.Println("tootab")
 	tpl.ExecuteTemplate(w, "index.html", nil)
 }
 

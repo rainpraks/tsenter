@@ -161,7 +161,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			"ovvoJah":      0,
 			"ovvoEI":       0,
 		},
-		"Minifix + tüübel": {
+		"Eksentriktõmmits + tüübel": {
 			"Kandev Kulg":    100,
 			"Lagi Peal":      100,
 			"Eerung":         0,
