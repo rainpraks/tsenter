@@ -21,35 +21,30 @@
                         <input type="radio" id="kandevKulg" name="k1" value="Kandev Kulg" checked="checked">
                         <label for="kandevKulg" class="radio-button-label">
                             <span class="image-name">90 kraadi külg </span>
-                            <a href="https://www.tsenter.ee" class="image-link" target="_blank">www.tsenter.ee</a>
                         </label>
                     </td>
                     <td>
                         <input type="radio" id="lagiPeal" name="k1" value="Lagi Peal">
                         <label for="lagiPeal" class="radio-button-label">
                             <span class="image-name">90 kraadi lagi </span>
-                            <a href="https://www.tsenter.ee" class="image-link" target="_blank">www.tsenter.ee</a>
                         </label>
                     </td>
                     <td>
                         <input type="radio" id="eerung" name="k1" value="Eerung">
                         <label for="eerung" class="radio-button-label">
                             <span class="image-name">Eerung </span>
-                            <a href="https://www.tsenter.ee" class="image-link" target="_blank">www.tsenter.ee</a>
                         </label>
                     </td>
                     <td>
                         <input type="radio" id="vaheriiul" name="k1" value="Vaheriiul">
                         <label for="vaheriiul" class="radio-button-label">
                             <span class="image-name">Vaheriiul </span>
-                            <a href="https://www.tsenter.ee" class="image-link" target="_blank">www.tsenter.ee</a>
                         </label>
                     </td>
                     <td>
                         <input type="radio" id="vahesein" name="k1" value="Vahesein">
                         <label for="vahesein" class="radio-button-label">
                             <span class="image-name">Vahesein </span>
-                            <a href="https://www.tsenter.ee" class="image-link" target="_blank">www.tsenter.ee</a>
                         </label>
                     </td>
                 </tr>
@@ -155,6 +150,22 @@
             </thead>
             <tbody></tbody>
         </table>
+        <section>
+            <h2>Tagasiside:</h2>
+            <form action="/submit-feedback" method="post">
+                
+                <label for="name"></label>
+                <input type="text" id="name" name="name" placeholder="Teie nimi"><br>
+
+                <label for="email"></label>
+                <input type="email" id="email" name="email" placeholder="Teie e-mail"><br>
+
+                <label for="feedback"></label>
+                <textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="Kirjutage siia oma tagasiside..."></textarea><br>
+
+                <input type="submit" value="Saada Tagasiside">
+            </form>
+        </section>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 function toggleLiimiga(enable) {

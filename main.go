@@ -42,7 +42,7 @@ func mainPage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	fmt.Println("tootab")
-	tpl.ExecuteTemplate(w, "mainpage.html", nil)
+	tpl.ExecuteTemplate(w, "index.html", nil)
 }
 
 // r method on posti meetod.
