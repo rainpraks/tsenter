@@ -22,16 +22,15 @@ func Email(email, nimi, sisu string) {
 
 	address := host + ":" + port
 
-	subject := "Tagasiside kasutajalt " + nimi + "\n"
+	subject := "Tagasiside kasutajalt " + nimi
 	body := "Kasutaja email: " + email + "\n" + sisu
 
-	message := []byte(subject + body)
+	message := []byte(subject + "\r\n" + body)
 
 	auth := smtp.PlainAuth("", from, password, host)
 	err := smtp.SendMail(address, auth, from, to, message)
 	if err != nil {
 		fmt.Println("error:", err)
-		fmt.Println(from, password)
 		return
 	}
 	fmt.Println("saadetud")
