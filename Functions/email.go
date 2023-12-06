@@ -31,6 +31,7 @@ func Email(email, nimi, sisu string) {
 	err := smtp.SendMail(address, auth, from, to, message)
 	if err != nil {
 		fmt.Println("error:", err)
+		fmt.Println(from, password)
 		return
 	}
 	fmt.Println("saadetud")
