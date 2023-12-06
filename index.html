@@ -164,9 +164,38 @@
                 <textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="Kirjutage siia oma tagasiside..."></textarea><br>
 
                 <input type="submit" value="Saada Tagasiside">
+                <div id="feedbackMessage" style="display:none; color:red;"></div>
+
             </form>
         </section>
         <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const form = document.querySelector('form[action="/submit-feedback"]');
+                 form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                fetch('/submit-feedback', {
+                method: 'POST',
+                body: formData
+                })
+                .then(response => {
+                if (!response.ok) {
+                throw new Error('Network response was not ok');
+                }
+                return response.text();
+                 })
+                .then(data => {
+                // Assuming the server sends back a plain text message on success
+                document.getElementById('feedbackMessage').style.display = 'block';
+                document.getElementById('feedbackMessage').textContent = data;
+                })
+                .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+                document.getElementById('feedbackMessage').style.display = 'block';
+                    document.getElementById('feedbackMessage').textContent = "Tekkis viga, vabandame. Saatke oma tagasiside tsenter@tsenter.ee";
+                });
+             });
+            });
             document.addEventListener('DOMContentLoaded', function () {
                 function toggleLiimiga(enable) {
                     document.querySelector('input[name="k3"][value="Liimiga"]').disabled = !enable;
