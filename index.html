@@ -182,18 +182,13 @@
                 if (!response.ok) {
                 throw new Error('Network response was not ok');
                 }
-                return response.text();
+                return response.json();
                  })
                 .then(data => {
                 // Assuming the server sends back a plain text message on success
                 document.getElementById('feedbackMessage').style.display = 'block';
-                document.getElementById('feedbackMessage').textContent = data;
+                document.getElementById('feedbackMessage').textContent = data.Message;
                 })
-                .catch(error => {
-                console.error('There has been a problem with your fetch operation:', error);
-                document.getElementById('feedbackMessage').style.display = 'block';
-                    document.getElementById('feedbackMessage').textContent = "Tekkis viga, vabandame. Saatke oma tagasiside tsenter@tsenter.ee";
-                });
              });
             });
             document.addEventListener('DOMContentLoaded', function () {
