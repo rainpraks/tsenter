@@ -238,3 +238,29 @@ table {
     pointer-events: none;
 
 }
+
+input[type="text"],
+input[type="email"],
+textarea {
+    border: 1px solid #ccc;
+    padding: 8px; 
+    margin-bottom: 10px; 
+    width: 100%; 
+    box-sizing: border-box; 
+    font-family: inherit; 
+    font-size: inherit; 
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white; 
+    padding: 12px 20px;
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    margin-bottom: 10px; 
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049; 
+}

@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func Email(email, nimi, sisu string) {
+func Email(email, nimi, sisu string) string {
 
 	from := os.Getenv("emailAddr")
 
@@ -31,7 +31,8 @@ func Email(email, nimi, sisu string) {
 	err := smtp.SendMail(address, auth, from, to, message)
 	if err != nil {
 		fmt.Println("error:", err)
-		return
+		return "Tekkis viga, vabandame. Võite saata oma tagasiside tsenter@tsenter.ee"
 	}
 	fmt.Println("saadetud")
+	return "Saadetud! Aitäh tagasiside eest."
 }
