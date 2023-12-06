@@ -13,7 +13,7 @@ func Email(email, nimi, sisu string) string {
 	password := os.Getenv("emailPass")
 
 	//toEmail := os.Getenv("toEmail")
-	toEmail := "lukas.haavel@gmail.com"
+	toEmail := os.Getenv("TSemail")
 
 	to := []string{toEmail}
 
@@ -33,6 +33,6 @@ func Email(email, nimi, sisu string) string {
 		fmt.Println("error:", err)
 		return "Tekkis viga, vabandame. Võite saata oma tagasiside tsenter@tsenter.ee"
 	}
-	fmt.Println("saadetud")
+	fmt.Println("Email saadetud")
 	return "Saadetud! Aitäh tagasiside eest."
 }

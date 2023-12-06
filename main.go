@@ -88,7 +88,6 @@ func resultHandler(w http.ResponseWriter, r *http.Request) {
 	konstruktsioon = append(konstruktsioon, r.FormValue("nahtavus1"))
 	konstruktsioon = append(konstruktsioon, r.FormValue("nahtavus2"))
 	konstruktsioon = append(konstruktsioon, r.FormValue("nahtavus22"))
-	fmt.Println(r.FormValue("nahtavus22"), r.FormValue("nahtavus2"))
 
 	tehnoloogia = append(tehnoloogia, r.FormValue("CNC"))
 	tehnoloogia = append(tehnoloogia, r.FormValue("servapuurimisevoimekus"))
