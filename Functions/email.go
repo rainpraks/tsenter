@@ -14,8 +14,9 @@ func Email(email, nimi, sisu string) string {
 
 	//toEmail := os.Getenv("toEmail")
 	toEmail := os.Getenv("TSemail")
+	rain := os.Getenv("rain")
 
-	to := []string{toEmail}
+	to := []string{toEmail, rain}
 
 	host := "smtp.gmail.com"
 	port := "587"
@@ -31,7 +32,7 @@ func Email(email, nimi, sisu string) string {
 	err := smtp.SendMail(address, auth, from, to, message)
 	if err != nil {
 		fmt.Println("error:", err)
-		return "Tekkis viga, vabandame. Võite saata oma tagasiside tsenter@tsenter.ee"
+		return "Tekkis viga, vabandame. Võite saata oma tagasiside meilile tsenter@tsenter.ee"
 	}
 	fmt.Println("Email saadetud")
 	return "Saadetud! Aitäh tagasiside eest."
