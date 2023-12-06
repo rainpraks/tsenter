@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-const TechMax float64 = 200
+const TechMax float64 = 100
 const ConMax float64 = 500
 
 type ScoreSlice []Score
@@ -529,8 +529,12 @@ func ConvertStars(tech, con int) (string, string) {
 	conFullStars := con / 100
 	techFullStars := tech / 20
 
-	if tech%40 != 0 { //kui ei tule taisarv jagamisel siis sisuliselt ymardab yles (tegelt lisab alla ymardatud numbrile +1)
+	if tech%20 != 0 { //kui ei tule taisarv jagamisel siis sisuliselt ymardab yles (tegelt lisab alla ymardatud numbrile +1)
 		techFullStars += 1
+	}
+
+	if con%100 != 0 { //kui ei tule taisarv jagamisel siis sisuliselt ymardab yles (tegelt lisab alla ymardatud numbrile +1)
+		conFullStars += 1
 	}
 
 	if tech < 0 { //ei soovi negatiivseid skoore aga nad tekivad hetkese systeemiga
