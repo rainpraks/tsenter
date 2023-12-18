@@ -513,7 +513,7 @@ func ScoreCalc(inputKon, inputTeh []string) ScoreSlice {
 			TechRating: techS,
 			ConRating:  conS,
 			Image:      img,
-			Link:       "static/Tehniline kirjeldus - Eksentriktõmmits - Leht1.pdf",
+			Link:       "static/Eksentrik.pdf",
 		}
 		list = append(list, s)
 	}
